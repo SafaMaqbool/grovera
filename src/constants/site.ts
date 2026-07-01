@@ -17,6 +17,6 @@ export const SITE = {
     "Educational Marketing",
     "Digital Marketing Pakistan",
     "Shariah Compliant Marketing",
-    "Grovera"
-  ]
+    "Grovera",
+  ],
 };
