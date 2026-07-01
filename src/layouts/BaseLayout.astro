@@ -1,4 +1,5 @@
 ---
+import { SITE } from "../constants/site";
 import "../styles/global.css";
 
 interface Props {
@@ -7,9 +8,8 @@ interface Props {
 }
 
 const {
-  title = "Grovera | Shariah-Compliant Growth Partner",
-  description =
-    "Grovera helps educational institutes grow through strategic marketing rooted in Islamic values.",
+  title = SITE.title,
+  description = SITE.description,
 } = Astro.props;
 ---
 
