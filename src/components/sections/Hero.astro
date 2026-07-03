@@ -1,0 +1,88 @@
+---
+import Container from "../ui/Container.astro";
+---
+
+<section
+  class="relative overflow-hidden"
+  style="background:linear-gradient(to bottom,#102514,#0D1F11);"
+>
+  <div
+    class="absolute inset-0 -z-20"
+    style="
+    background:
+      radial-gradient(circle at 50% 0%, rgba(83,124,46,.18), transparent 45%);
+  "
+  >
+  </div>
+
+  <!-- Top Glow -->
+  <div
+    class="absolute left-1/2 top-[-180px] -z-10 h-[700px] w-[700px] -translate-x-1/2 rounded-full opacity-70 blur-[160px]"
+    style="background:#537C2E;"
+  >
+  </div>
+
+  <!-- Bottom Glow -->
+  <div
+    class="absolute -bottom-40 right-[-150px] -z-10 h-[450px] w-[450px] rounded-full opacity-40 blur-[140px]"
+    style="background:#8DA750;"
+  >
+  </div>
+
+  <!-- Grid -->
+  <div
+    class="absolute inset-0 -z-30 bg-[linear-gradient(rgba(255,255,255,.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.05)_1px,transparent_1px)] bg-[size:60px_60px]"
+  >
+  </div>
+
+  <Container>
+    <div
+      class="flex min-h-screen flex-col items-center justify-center pt-32 pb-24 text-center"
+    >
+      <!-- Badge -->
+
+      <div
+        class="mb-8 flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-2 backdrop-blur"
+      >
+        <span class="h-2 w-2 rounded-full bg-accent-light"></span>
+
+        <span class="text-sm text-white/70">
+          Shariah-Compliant Growth Partner
+        </span>
+      </div>
+
+      <!-- Heading -->
+
+      <h1
+        class="max-w-5xl text-5xl font-semibold leading-[1.05] tracking-tight text-white md:text-7xl"
+      >
+        Grow Your Business
+
+        <br />
+
+        <span class="text-accent-light"> Without Compromising </span>
+
+        <br />
+
+        Your Values.
+      </h1>
+
+      <!-- Paragraph -->
+
+      <p class="mt-8 max-w-xl text-lg leading-8 text-white/65">
+        At Grovera, we help educational institutes grow through strategic
+        marketing rooted in Islamic values because lasting growth should never
+        come at the cost of what matters most.
+      </p>
+
+      <!-- CTA -->
+
+      <a
+        href="#contact"
+        class="mt-12 rounded-2xl border border-white/10 bg-accent px-8 py-4 font-medium text-white shadow-lg shadow-black/20 transition-all duration-300 hover:-translate-y-1 hover:bg-accent-light"
+      >
+        Let's Build Your Business the Right Way
+      </a>
+    </div>
+  </Container>
+</section>
