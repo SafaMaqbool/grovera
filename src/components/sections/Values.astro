@@ -1,0 +1,117 @@
+---
+import Container from "../ui/Container.astro";
+import Badge from "../ui/Badge.astro";
+import Card from "../ui/Card.astro";
+
+import {
+  standFor,
+  avoid,
+} from "../../constants/values";
+---
+
+<section id="values" class="bg-background py-28">
+
+  <Container>
+
+    <!-- Section Header -->
+
+    <div class="mx-auto max-w-3xl text-center">
+
+      <div class="flex justify-center">
+        <Badge>Our Values</Badge>
+      </div>
+
+      <h2 class="mt-6 text-4xl font-bold leading-tight text-text sm:text-5xl">
+        Growth Guided by Islamic Values.
+      </h2>
+
+      <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-text-muted">
+        Being your Shariah-compliant growth partner is more than a tagline.
+        It means building businesses where every strategy, campaign, and
+        decision is guided by Islamic principles.
+      </p>
+
+    </div>
+
+    <!-- Cards -->
+
+    <div class="mt-20 grid gap-8 lg:grid-cols-2">
+
+      <Card title="What We Stand For">
+
+        <ul class="space-y-5">
+
+          {
+            standFor.map((item) => (
+              <li class="flex items-center gap-4">
+
+                <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent/20 text-accent-light">
+
+                  ✓
+
+                </div>
+
+                <span class="text-text">
+                  {item}
+                </span>
+
+              </li>
+            ))
+          }
+
+        </ul>
+
+      </Card>
+
+      <Card title="What We Avoid">
+
+        <ul class="space-y-5">
+
+          {
+            avoid.map((item) => (
+              <li class="flex items-center gap-4">
+
+                <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-red-500/10 text-red-400">
+
+                  ✕
+
+                </div>
+
+                <span class="text-text">
+                  {item}
+                </span>
+
+              </li>
+            ))
+          }
+
+        </ul>
+
+      </Card>
+
+    </div>
+
+    <!-- Closing Statement -->
+
+    <div class="mx-auto mt-24 max-w-4xl text-center">
+
+      <div class="mx-auto mb-8 h-px w-24 bg-accent-light/40"></div>
+
+      <blockquote class="text-3xl font-semibold leading-relaxed text-text">
+
+        Businesses should never have to choose
+        between success and their values.
+
+      </blockquote>
+
+      <p class="mt-6 text-xl text-accent-light font-medium">
+
+        They should be able to have both.
+
+      </p>
+
+    </div>
+
+  </Container>
+
+</section>
