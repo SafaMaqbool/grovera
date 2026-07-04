@@ -1,4 +1,5 @@
 ---
+import Header from "../components/layout/Header.astro";
 import { SITE } from "../constants/site";
 import "../styles/global.css";
 
@@ -40,6 +41,7 @@ const {
   </head>
 
   <body>
+    <Header/>
     <slot />
   </body>
 </html>

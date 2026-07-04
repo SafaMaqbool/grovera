@@ -1,0 +1,147 @@
+---
+import Container from "../ui/Container.astro";
+import Button from "../ui/Button.astro";
+import { navLinks } from "../../constants/navlinks";
+import Logo from "../../assets/images/logo-full.png";
+---
+
+<header class="fixed inset-x-0 top-0 z-50" id="site-header">
+  <div class="transition-all duration-300 ease-out" id="header-inner">
+    <Container>
+      <nav class="flex items-center justify-between py-5" aria-label="Primary">
+        <a href="/" class="flex items-center">
+          <img src={Logo.src} alt="Grovera Logo" class="h-10 w-auto" />
+        </a>
+
+        <ul class="hidden items-center gap-8 md:flex">
+          {
+            navLinks.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="link-underline text-sm font-medium text-text-muted transition-colors duration-200 hover:text-text"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+
+        <div class="hidden md:block">
+          <Button href="#cta" variant="primary" class="px-5! py-2.5! text-xs!">
+            Let's Grow Together
+          </Button>
+        </div>
+
+        <button
+          id="menu-toggle"
+          class="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 text-text md:hidden"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <svg
+            id="icon-open"
+            class="h-5 w-5"
+            viewBox="0 0 20 20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          >
+            <path d="M3 5h14M3 10h14M3 15h14"></path>
+          </svg>
+          <svg
+            id="icon-close"
+            class="hidden h-5 w-5"
+            viewBox="0 0 20 20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+          >
+            <path d="M5 5l10 10M15 5 5 15"></path>
+          </svg>
+        </button>
+      </nav>
+    </Container>
+  </div>
+
+  <div
+    id="mobile-menu"
+    class="hidden border-t border-white/10 bg-background/95 backdrop-blur-md md:hidden"
+  >
+    <Container class="flex flex-col gap-1 py-4">
+      {
+        navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="rounded-lg px-3 py-3 text-sm font-medium text-text-muted transition-colors hover:bg-white/5 hover:text-text"
+            data-mobile-link
+          >
+            {link.label}
+          </a>
+        ))
+      }
+      <div class="mt-2 px-3">
+        <Button href="#cta" variant="primary" class="w-full"
+          >Let's Grow Together</Button
+        >
+      </div>
+    </Container>
+  </div>
+</header>
+
+<script>
+  const headerInner = document.getElementById("header-inner");
+  const toggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+  const iconOpen = document.getElementById("icon-open");
+  const iconClose = document.getElementById("icon-close");
+
+  const setScrolledState = () => {
+    if (!headerInner) return;
+    if (window.scrollY > 8) {
+      headerInner.classList.add(
+        "bg-background/80",
+        "backdrop-blur-md",
+        "border-b",
+        "border-white/10",
+      );
+    } else {
+      headerInner.classList.remove(
+        "bg-background/80",
+        "backdrop-blur-md",
+        "border-b",
+        "border-white/10",
+      );
+    }
+  };
+
+  setScrolledState();
+  window.addEventListener("scroll", setScrolledState, { passive: true });
+
+  const closeMenu = () => {
+    menu?.classList.add("hidden");
+    iconOpen?.classList.remove("hidden");
+    iconClose?.classList.add("hidden");
+    toggle?.setAttribute("aria-expanded", "false");
+  };
+
+  toggle?.addEventListener("click", () => {
+    const isHidden = menu?.classList.contains("hidden");
+    if (isHidden) {
+      menu?.classList.remove("hidden");
+      iconOpen?.classList.add("hidden");
+      iconClose?.classList.remove("hidden");
+      toggle.setAttribute("aria-expanded", "true");
+    } else {
+      closeMenu();
+    }
+  });
+
+  document.querySelectorAll("[data-mobile-link]").forEach((el) => {
+    el.addEventListener("click", closeMenu);
+  });
+</script>
