@@ -1,0 +1,56 @@
+---
+import Badge from "../ui/Badge.astro";
+import Container from "../ui/Container.astro";
+import StoryVisual from "../ui/StoryVisual.astro";
+
+---
+
+<section id="story" class="bg-background py-28">
+  <Container>
+    <div class="text-center">
+      <Badge>Our Story</Badge>
+
+      <h2 class="mt-6 text-4xl font-bold leading-tight text-text sm:text-5xl">
+        Why Grovera Exists
+      </h2>
+    </div>
+
+    <div class="mt-20 grid items-center gap-20 lg:grid-cols-2">
+
+      <!-- LEFT -->
+
+      <div class="space-y-8 text-lg leading-8 text-text-muted">
+
+        <p>
+          Grovera was not built because the world needed another marketing
+          agency. It was built because we believed businesses deserved another
+          way to grow.
+        </p>
+
+        <p>
+          While working in the marketing industry, we saw businesses feeling
+          pressured to follow approaches that did not always align with their
+          values. We believed there was a better way — a way where success did
+          not require compromise.
+        </p>
+
+        <p>
+          That belief became Grovera: a Shariah-compliant marketing agency that
+          brings together strategy, creativity, and professionalism while
+          remaining rooted in Islamic values.
+        </p>
+
+        <p class="font-medium text-text">
+          Because to us, success is not only about achieving results.
+          It is about achieving them the right way.
+        </p>
+
+      </div>
+
+      <!-- RIGHT -->
+
+      <StoryVisual />
+
+    </div>
+  </Container>
+</section>
