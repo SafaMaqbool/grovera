@@ -4,18 +4,18 @@ export interface NavLink {
 }
 
 export const navLinks: NavLink[] = [
-  { label: 'Our Values', href: '#tagline' },
+  { label: 'Our Values', href: '#values' },
   { label: 'How We Help', href: '#services' },
-  { label: 'Why Us', href: '#why-choose' },
+  { label: 'Why Us', href: '#why-choose-us' },
   { label: 'Experience', href: '#experience' },
   { label: 'FAQ', href: '#faq' },
 ];
 
 export const footerNav = {
   company: [
-    { label: 'Our Values', href: '#tagline' },
-    { label: 'Why Grovera Exists', href: '#why-exists' },
-    { label: 'Why Us', href: '#why-choose' },
+    { label: 'Our Values', href: '#values' },
+    { label: 'Why Grovera Exists', href: '#story' },
+    { label: 'Why Us', href: '#why-choose-us' },
     { label: 'Experience', href: '#experience' },
   ],
   services: [

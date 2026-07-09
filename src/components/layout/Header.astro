@@ -2,7 +2,7 @@
 import Container from "../ui/Container.astro";
 import Button from "../ui/Button.astro";
 import { navLinks } from "../../constants/navlinks";
-import Logo from "../../assets/images/logo-full.png";
+import Logo from "../../assets/images/grovera-logo.svg";
 ---
 
 <header class="fixed inset-x-0 top-0 z-50" id="site-header">
@@ -10,7 +10,13 @@ import Logo from "../../assets/images/logo-full.png";
     <Container>
       <nav class="flex items-center justify-between py-5" aria-label="Primary">
         <a href="/" class="flex items-center">
-          <img src={Logo.src} alt="Grovera Logo" class="h-10 w-auto" />
+          <img
+            src={Logo.src}
+            width={Logo.width}
+            height={Logo.height}
+            alt="Grovera Logo"
+            class="h-10 w-auto"
+          />
         </a>
 
         <ul class="hidden items-center gap-8 md:flex">
@@ -35,6 +41,7 @@ import Logo from "../../assets/images/logo-full.png";
         </div>
 
         <button
+          type="button"
           id="menu-toggle"
           class="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 text-text md:hidden"
           aria-label="Toggle menu"
