@@ -1,8 +1,8 @@
 export const footerLinks = {
   company: [
-    { label: 'Our Values', href: '#tagline' },
-    { label: 'Why Grovera Exists', href: '#why-exists' },
-    { label: 'Why Us', href: '#why-choose' },
+    { label: 'Our Values', href: '#values' },
+    { label: 'Why Grovera Exists', href: '#story' },
+    { label: 'Why Us', href: '#why-choose-us' },
     { label: 'Experience', href: '#experience' },
   ],
   services: [

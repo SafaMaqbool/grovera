@@ -9,13 +9,13 @@ interface Props {
 const { href, variant = 'primary', class: className = '', type = 'button' } = Astro.props;
 
 const base =
-  'group relative inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-light focus-visible:ring-offset-2 focus-visible:ring-offset-bg-primary';
+  'group relative inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-light focus-visible:ring-offset-2 focus-visible:ring-offset-background';
 
 const variants = {
   primary:
-    'bg-accent text-white shadow-glow hover:bg-accent-light hover:text-bg-primary hover:-translate-y-0.5 active:translate-y-0',
+    'bg-accent text-white shadow-glow hover:bg-accent-light hover:text-background hover:-translate-y-0.5 active:translate-y-0',
   secondary:
-    'text-ink border border-white/15 hover:border-accent-light/60 hover:text-accent-light',
+    'text-text border border-white/15 hover:border-accent-light/60 hover:text-accent-light',
 };
 
 const Tag = href ? 'a' : 'button';

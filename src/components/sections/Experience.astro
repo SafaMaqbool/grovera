@@ -1,43 +1,40 @@
 ---
 
-import Badge from '../ui/Badge.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+import Card from '../ui/Card.astro';
 import StatIcon from '../ui/StatIcon.astro';
 import { experienceStats, experienceFeatures } from '../../constants/experience';
 import Container from '../ui/Container.astro';
 ---
 
-<section class="relative py-28 sm:py-36" id="experience">
+<section class="relative py-20 sm:py-28" id="experience">
   <Container>
-    <div class="mx-auto max-w-5xl text-center">
-      <div class="flex justify-center">
-        <Badge>Track Record</Badge>
-      </div>
-      <h2 class="mt-6 text-balance text-3xl font-bold tracking-tight text-text sm:text-4xl lg:text-5xl">
-        Experience That Drives Grovera
-      </h2>
-      <p class="mx-auto mt-5 max-w-4xl text-balance text-base leading-relaxed text-text-muted sm:text-lg">
-        Built on years of hands-on experience in leading marketing campaigns, managing creative teams, and delivering measurable growth across the education sector.
-      </p>
-    </div>
+    <SectionHeading
+      badge="Track Record"
+      title="Experience That Drives Grovera"
+      description="Built on years of hands-on experience in leading marketing campaigns, managing creative teams, and delivering measurable growth across the education sector."
+      class="max-w-5xl"
+      descriptionClass="max-w-4xl"
+    />
 
     <div class="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3">
       {experienceStats.map((stat) => (
-        <div class="rounded-3xl border border-white/10 bg-white/3 p-8 text-center">
+        <Card class="text-center">
           <div class="mx-auto flex h-11 w-11 items-center justify-center rounded-xl border border-accent-light/25 bg-accent/10 text-accent-light">
             <StatIcon icon={stat.icon} />
           </div>
           <p class="text-glow mt-5 text-4xl font-bold text-text">{stat.value}</p>
           <p class="mt-2 text-sm font-medium text-text-muted">{stat.label}</p>
-        </div>
+        </Card>
       ))}
     </div>
 
-    <div class="mx-auto mt-6 grid max-w-4xl grid-cols-1 gap-5 sm:grid-cols-2">
+    <div class="mx-auto mt-8 grid max-w-4xl grid-cols-1 gap-5 sm:grid-cols-2">
       {experienceFeatures.map((feature) => (
-        <div class="rounded-3xl border border-white/10 bg-white/3 p-8">
+        <Card>
           <h3 class="text-lg font-semibold text-text">{feature.title}</h3>
           <p class="mt-2 text-sm leading-relaxed text-text-muted">{feature.description}</p>
-        </div>
+        </Card>
       ))}
     </div>
   </Container>

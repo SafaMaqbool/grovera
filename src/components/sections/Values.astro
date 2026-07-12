@@ -1,35 +1,23 @@
 ---
 import Container from "../ui/Container.astro";
-import Badge from "../ui/Badge.astro";
+import SectionHeading from "../ui/SectionHeading.astro";
 import Card from "../ui/Card.astro";
 import { Icon } from "astro-icon/components";
 
 import { standFor, avoid } from "../../constants/values";
 ---
 
-<section id="values" class="bg-background py-28">
+<section id="values" class="bg-background py-20 sm:py-28">
   <Container>
-    <!-- Section Header -->
-
-    <div class="mx-auto max-w-3xl text-center">
-      <div class="flex justify-center">
-        <Badge>Our Values</Badge>
-      </div>
-
-      <h2 class="mt-6 text-4xl font-bold leading-tight text-text sm:text-5xl">
-        Growth Guided by Islamic Values.
-      </h2>
-
-      <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-text-muted">
-        Being your Shariah-compliant growth partner is more than a tagline. It
-        means building businesses where every strategy, campaign, and decision
-        is guided by Islamic principles.
-      </p>
-    </div>
+    <SectionHeading
+      badge="Our Values"
+      title="Growth Guided by Islamic Values."
+      description="Being your Shariah-compliant growth partner is more than a tagline. It means building businesses where every strategy, campaign, and decision is guided by Islamic principles."
+    />
 
     <!-- Cards -->
 
-    <div class="mt-20 grid gap-8 md:grid-cols-2">
+    <div class="mt-16 grid gap-8 md:grid-cols-2">
       <Card title="What We Stand For">
         <ul class="space-y-5">
           {
