@@ -6,7 +6,7 @@ interface Props {
   type?: 'button' | 'submit';
 }
 
-const { href, variant = 'primary', class: className = '', type = 'button' } = Astro.props;
+const { href, variant = 'primary', class: className = '', type = 'button', ...rest } = Astro.props;
 
 const base =
   'group relative inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-light focus-visible:ring-offset-2 focus-visible:ring-offset-background';
@@ -25,6 +25,7 @@ const Tag = href ? 'a' : 'button';
   href={href}
   type={!href ? type : undefined}
   class={`${base} ${variants[variant]} ${className}`}
+  {...rest}
 >
   <slot />
   {variant === 'primary' && (

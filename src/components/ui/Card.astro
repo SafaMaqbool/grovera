@@ -7,6 +7,7 @@ interface Props {
 const {
   title,
   class: className = "",
+  ...rest
 } = Astro.props;
 ---
 
@@ -15,6 +16,7 @@ const {
     "rounded-3xl border border-white/10 bg-surface/80 p-8 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-2xl",
     className,
   ]}
+  {...rest}
 >
 
   {

@@ -23,6 +23,14 @@
   --animate-float: float 6s ease-in-out infinite;
   --animate-pulse-soft: pulse-soft 3s ease-in-out infinite;
   --animate-grow-line: grow-line 2.2s ease-out forwards;
+
+  --spacing-85: 21.25rem;
+  --spacing-100: 25rem;
+  --spacing-105: 26.25rem;
+  --spacing-125: 31.25rem;
+  --spacing-150: 37.5rem;
+  --spacing-175: 43.75rem;
+  --spacing-225: 56.25rem;
 }
 
 @keyframes fade-up {

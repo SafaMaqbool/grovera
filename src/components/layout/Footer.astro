@@ -1,7 +1,7 @@
 ---
 import { footerLinks } from '../../constants/footerLinks';
 import Container from '../ui/Container.astro';
-import Grovera from '../../assets/images/grovera-logo.svg';
+import Logo from '../../assets/images/grovera-logo.svg';
 import { Icon } from 'astro-icon/components';
 const year = new Date().getFullYear();
 ---
@@ -11,7 +11,13 @@ const year = new Date().getFullYear();
     <div class="grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-12 lg:gap-12">
       <div class="sm:col-span-2 lg:col-span-4">
         <a href="/" class="inline-flex items-center gap-2">
-          <Grovera class="h-6 w-auto fill-current text-accent-light" />
+          <img
+            src={Logo.src}
+            width={Logo.width}
+            height={Logo.height}
+            alt="Grovera Logo"
+            class="h-6 w-auto"
+          />
         </a>
         <p class="mt-4 max-w-xs text-sm leading-relaxed text-text-muted">
           A shariah compliant growth partner helping ambitious businesses build brands, websites, and strategies that perform.
