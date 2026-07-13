@@ -17,5 +17,11 @@ export const footerLinks = {
   legal: [
     { label: 'Privacy Policy', href: '#' },
     { label: 'Terms of Service', href: '#' },
+
+  ],
+  icons: [
+    { label: 'Twitter', href: 'https://twitter.com/groveradigital'
+     },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/company/grovera-digital/' },
   ],
 };

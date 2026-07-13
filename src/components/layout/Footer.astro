@@ -80,26 +80,17 @@ const year = new Date().getFullYear();
         </div>
       </div>
       <div class="flex items-center gap-3">
-        <span
-          aria-disabled="true"
-          aria-label="LinkedIn (coming soon)"
-          title="Coming soon"
-          class="flex h-9 w-9 cursor-not-allowed items-center justify-center rounded-full border border-white/10 text-text-muted/50"
-        >
-          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3zm7 0h3.8v1.64h.05c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.6c0-1.34-.02-3.06-1.87-3.06-1.87 0-2.16 1.46-2.16 2.97V21h-4z" />
-          </svg>
-        </span>
-        <span
-          aria-disabled="true"
-          aria-label="X (coming soon)"
-          title="Coming soon"
-          class="flex h-9 w-9 cursor-not-allowed items-center justify-center rounded-full border border-white/10 text-text-muted/50"
-        >
-          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M18.9 2H22l-7.6 8.7L23.3 22h-7.1l-5.6-7.2L4.2 22H1l8.2-9.3L1 2h7.3l5 6.6L18.9 2Zm-1.2 18h1.9L6.4 4H4.4l13.3 16Z" />
-          </svg>
-        </span>
+        {footerLinks.icons.map((item) => (
+          <a
+            href={item.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-text-muted transition-colors duration-200 hover:text-text"
+            >   
+            <Icon name={`simple-icons:${item.label.toLowerCase()}`} class="h-5 w-5" />
+            </a>
+        ))}
+        
       </div>
     </div>
   </Container>
