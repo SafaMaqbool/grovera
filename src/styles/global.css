@@ -136,5 +136,9 @@
     opacity: 1;
     animation: none;
   }
+  .animate-float,
+  .animate-pulse-soft,
+  .animate-grow-line,
+  .animate-pulse { animation: none !important; }
 }
 

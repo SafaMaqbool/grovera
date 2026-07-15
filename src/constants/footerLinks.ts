@@ -20,8 +20,8 @@ export const footerLinks = {
 
   ],
   icons: [
-    { label: 'Twitter', href: 'https://twitter.com/groveradigital'
-     },
-    { label: 'LinkedIn', href: 'https://www.linkedin.com/company/grovera-digital/' },
+    { label: 'Twitter', href: 'https://twitter.com/groveradigital', icon: 'simple-icons:twitter' },
+    { label: 'Instagram', href: 'https://www.instagram.com/groveradigital/', icon: 'simple-icons:instagram' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/company/grovera-digital/', icon: 'simple-icons:linkedin' },
   ],
 };

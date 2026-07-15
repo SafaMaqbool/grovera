@@ -91,9 +91,10 @@ const year = new Date().getFullYear();
             href={item.href}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={item.label}
             class="text-text-muted transition-colors duration-200 hover:text-text"
             >   
-            <Icon name={`simple-icons:${item.label.toLowerCase()}`} class="h-5 w-5" />
+            <Icon name={item.icon} class="h-5 w-5" />
             </a>
         ))}
         
