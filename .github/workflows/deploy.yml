@@ -20,6 +20,8 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v7
+      - name: Approve pnpm builds
+        run: pnpm config set --location project auto-install-peers true && pnpm install --no-optional
       - name: Install, build, and upload your site output
         uses: withastro/action@v6
         with:
