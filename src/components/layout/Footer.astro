@@ -1,0 +1,106 @@
+---
+import { footerLinks } from '../../constants/footerLinks';
+import Container from '../ui/Container.astro';
+import Logo from '../../assets/images/grovera-logo.svg';
+import { Icon } from 'astro-icon/components';
+const year = new Date().getFullYear();
+---
+
+<footer class="relative border-t border-white/10 bg-surface/40">
+  <Container class="py-16 sm:py-20 lg:py-24">
+    <div class="grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-12 lg:gap-12">
+      <div class="sm:col-span-2 lg:col-span-4">
+        <a href="/" class="inline-flex items-center gap-2">
+          <img
+            src={Logo.src}
+            width={Logo.width}
+            height={Logo.height}
+            alt="Grovera Logo"
+            class="h-6 w-auto"
+            loading="lazy"
+            decoding="async"
+          />
+        </a>
+        <p class="mt-4 max-w-xs text-sm leading-relaxed text-text-muted">
+          A shariah compliant growth partner helping ambitious businesses build brands, websites, and strategies that perform.
+        </p>
+      </div>
+
+      <div class="lg:col-span-2">
+        <h3 class="text-xs font-semibold uppercase tracking-wider text-text-muted">Company</h3>
+        <ul class="mt-5 space-y-3">
+          {footerLinks.company.map((item) => (
+            <li>
+              <a href={item.href} class="link-underline text-sm text-text-muted transition-colors duration-200 hover:text-text">
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="lg:col-span-3">
+        <h3 class="text-xs font-semibold uppercase tracking-wider text-text-muted">Services</h3>
+        <ul class="mt-5 space-y-3">
+          {footerLinks.services.map((item) => (
+            <li>
+              <a href={item.href} class="link-underline text-sm text-text-muted transition-colors duration-200 hover:text-text">
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="lg:col-span-3">
+        <h3 class="text-xs font-semibold uppercase tracking-wider text-text-muted">Get in Touch</h3>
+        <ul class="mt-5 space-y-3 text-sm text-text-muted">
+          <li>
+            <a
+              href="mailto:hello@grovera.com"
+              class="link-underline inline-flex items-center gap-2 transition-colors duration-200 hover:text-text"
+            >
+              <Icon name="heroicons:envelope" class="h-4 w-4 shrink-0" />
+              hello@grovera.com
+            </a>
+          </li>
+          <li class="flex items-center gap-2">
+            <Icon name="heroicons:map-pin" class="h-4 w-4 shrink-0" />
+            Karachi, Pakistan
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-14 flex flex-col items-center justify-between gap-6 border-t border-white/10 pt-8 sm:flex-row">
+      <div class="flex flex-col items-center gap-3 text-xs text-text-muted sm:flex-row sm:gap-5">
+        <p>&copy; {year} Grovera. All rights reserved.</p>
+        <div class="flex items-center gap-4">
+          {footerLinks.legal.map((item) => (
+            <span
+              aria-disabled="true"
+              title="Coming soon"
+              class="cursor-not-allowed select-none text-text-muted/50"
+            >
+              {item.label}
+            </span>
+          ))}
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        {footerLinks.icons.map((item) => (
+          <a
+            href={item.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={item.label}
+            class="text-text-muted transition-colors duration-200 hover:text-text"
+            >   
+            <Icon name={item.icon} class="h-5 w-5" />
+            </a>
+        ))}
+        
+      </div>
+    </div>
+  </Container>
+</footer>

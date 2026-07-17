@@ -1,0 +1,116 @@
+---
+
+import Button from '../ui/Button.astro';
+import Badge from '../ui/Badge.astro';
+import GridBackground from '../ui/GridBackground.astro';
+import Container from '../ui/Container.astro';
+---
+
+<section class="relative overflow-hidden pt-40 pb-20 sm:pt-48 sm:pb-28" id="hero">
+  <GridBackground />
+
+  <!-- Mouse-following spotlight -->
+  <div
+    id="spotlight"
+    class="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500"
+    style="background: radial-gradient(600px circle at var(--x, 50%) var(--y, 20%), rgba(168,199,106,0.12), transparent 70%);"
+    aria-hidden="true"
+  >
+  </div>
+
+  <!-- Ambient radial glow -->
+  <div
+    class="pointer-events-none absolute left-1/2 top-0 h-150 w-225 -translate-x-1/2 -translate-y-1/3 radial-glow blur-3xl"
+    aria-hidden="true"
+  >
+  </div>
+
+  <Container class="relative">
+    <div class="mx-auto max-w-3xl text-center">
+      <div class="fade-up flex justify-center">
+        <Badge>Shariah-Compliant Growth Partner</Badge>
+      </div>
+
+      <h1 class="fade-up delay-1 mt-6 text-balance text-4xl font-bold leading-[1.1] tracking-tight text-text sm:text-6xl">
+        Grow Your Business Without Compromising Your Values.
+      </h1>
+
+      <p class="fade-up delay-2 mx-auto mt-6 max-w-xl text-balance text-base leading-relaxed text-text-muted sm:text-lg">
+        At Grovera, we help educational institutes grow through strategic marketing rooted in Islamic values — because we believe lasting growth should never come at the cost of what matters most.
+      </p>
+
+      <div class="fade-up delay-3 mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <Button href="#cta" variant="primary">Let's Build Your Business the Right Way</Button>
+      </div>
+    </div>
+
+    <!-- Abstract floating analytics UI cards + growth graph -->
+    <div class="fade-up delay-4 relative mx-auto mt-20 h-85 max-w-4xl sm:h-100">
+      <!-- growth graph -->
+      <div class="absolute inset-x-0 bottom-0 h-[70%] rounded-3xl border border-white/10 bg-white/2 p-6 sm:p-8">
+        <svg viewBox="0 0 600 220" class="h-full w-full" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="graphFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#A8C76A" stop-opacity="0.35" />
+              <stop offset="100%" stop-color="#A8C76A" stop-opacity="0" />
+            </linearGradient>
+          </defs>
+          <g stroke="rgba(255,255,255,0.06)" stroke-width="1">
+            <line x1="0" y1="40" x2="600" y2="40" />
+            <line x1="0" y1="90" x2="600" y2="90" />
+            <line x1="0" y1="140" x2="600" y2="140" />
+            <line x1="0" y1="190" x2="600" y2="190" />
+          </g>
+          <path
+            d="M0,180 C60,170 100,150 150,140 C200,130 240,160 290,130 C340,100 380,60 430,55 C480,50 520,70 600,20"
+            fill="none"
+            stroke="#A8C76A"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            pathLength="1000"
+            class="animate-grow-line"
+            style="stroke-dasharray: 1000;"
+          />
+          <path
+            d="M0,180 C60,170 100,150 150,140 C200,130 240,160 290,130 C340,100 380,60 430,55 C480,50 520,70 600,20 L600,220 L0,220 Z"
+            fill="url(#graphFill)"
+          />
+        </svg>
+      </div>
+
+      <!-- floating card: growth rate -->
+      <div class="absolute -left-2 top-2 hidden animate-float rounded-2xl border border-white/10 bg-surface/90 px-5 py-4 shadow-card backdrop-blur-md sm:block">
+        <p class="text-xs font-medium uppercase tracking-wide text-text-muted">Growth Rate</p>
+        <p class="mt-1 text-2xl font-bold text-text">+248%</p>
+      </div>
+
+      <!-- floating card: conversions -->
+      <div
+        class="absolute -right-2 top-16 hidden animate-float rounded-2xl border border-white/10 bg-surface/90 px-5 py-4 shadow-card backdrop-blur-md sm:block"
+        style="animation-delay: 1.2s;"
+      >
+        <p class="text-xs font-medium uppercase tracking-wide text-text-muted">Conversions</p>
+        <p class="mt-1 text-2xl font-bold text-accent-light">3.4x</p>
+      </div>
+    </div>
+  </Container>
+</section>
+
+<script>
+  const hero = document.getElementById('hero');
+  const spotlight = document.getElementById('spotlight');
+
+  if (hero && spotlight && window.matchMedia('(hover: hover)').matches) {
+    hero.addEventListener('mousemove', (e) => {
+      const rect = hero.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      spotlight.style.setProperty('--x', `${x}%`);
+      spotlight.style.setProperty('--y', `${y}%`);
+      spotlight.style.opacity = '1';
+    });
+    hero.addEventListener('mouseleave', () => {
+      spotlight.style.opacity = '0';
+    });
+  }
+</script>

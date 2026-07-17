@@ -1,0 +1,33 @@
+---
+import Badge from './Badge.astro';
+
+interface Props {
+  badge: string;
+  title: string;
+  description?: string;
+  class?: string;
+  descriptionClass?: string;
+}
+
+const {
+  badge,
+  title,
+  description,
+  class: className = 'max-w-3xl',
+  descriptionClass = 'max-w-2xl',
+} = Astro.props;
+---
+
+<div class:list={['mx-auto text-center', className]}>
+  <div class="flex justify-center">
+    <Badge>{badge}</Badge>
+  </div>
+  <h2 class="mt-6 text-balance text-3xl font-bold tracking-tight text-text sm:text-4xl lg:text-5xl">
+    {title}
+  </h2>
+  {description && (
+    <p class:list={['mx-auto mt-5 text-balance text-base leading-relaxed text-text-muted sm:text-lg', descriptionClass]}>
+      {description}
+    </p>
+  )}
+</div>

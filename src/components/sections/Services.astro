@@ -1,0 +1,32 @@
+---
+
+import SectionHeading from '../ui/SectionHeading.astro';
+import Card from '../ui/Card.astro';
+import ServiceIcon from '../ui/ServiceIcon.astro';
+import { services } from '../../constants/services';
+import Container from '../ui/Container.astro';
+---
+
+<section class="relative py-20 sm:py-28" id="services">
+  <Container>
+    <SectionHeading
+      badge="How We Help"
+      title="Helping Businesses Grow with Clarity and Purpose."
+      description="Every business has different goals, challenges, and opportunities — that is why we do not believe in one-size-fits-all marketing. Our focus is always the same: creating a strategy that supports meaningful and sustainable business growth."
+      class="max-w-5xl"
+      descriptionClass="max-w-4xl"
+    />
+
+    <div class="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {services.map((service) => (
+        <Card class="group">
+          <div class="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-surface/50 text-accent-light transition-colors duration-300 group-hover:border-accent-light/40 group-hover:text-accent-light/80">
+            <ServiceIcon icon={service.icon} />
+          </div>
+          <h3 class="mt-5 text-lg font-semibold text-text">{service.title}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-text-muted">{service.description}</p>
+        </Card>
+      ))}
+    </div>
+  </Container>
+</section>

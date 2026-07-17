@@ -1,0 +1,42 @@
+---
+
+import SectionHeading from '../ui/SectionHeading.astro';
+import { faqItems } from '../../constants/faq';
+import Container from '../ui/Container.astro';
+---
+
+<section class="relative py-20 sm:py-28" id="faq">
+  <Container>
+    <SectionHeading badge="FAQ" title="Frequently Asked Questions" class="max-w-5xl" />
+
+    <div class="mx-auto mt-16 max-w-3xl divide-y divide-white/10 border-t border-white/10">
+      {faqItems.map((item) => (
+        <details class="group py-6">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-medium text-text transition-colors marker:content-none focus-visible:outline-none sm:text-lg">
+            {item.question}
+            <svg
+              class="h-4 w-4 shrink-0 text-text-muted transition-transform duration-300 group-open:rotate-45"
+              viewBox="0 0 16 16"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              aria-hidden="true"
+            >
+              <path d="M8 3v10M3 8h10" />
+            </svg>
+          </summary>
+          <p class="mt-4 max-w-2xl text-sm leading-relaxed text-text-muted sm:text-base">
+            {item.answer}
+          </p>
+        </details>
+      ))}
+    </div>
+  </Container>
+</section>
+
+<style>
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

@@ -1,0 +1,17 @@
+---
+interface Props {
+  class?: string;
+  fade?: boolean;
+}
+const { class: className = '', fade = true } = Astro.props;
+---
+
+<div
+  class:list={[
+    'pointer-events-none absolute inset-0 grid-bg',
+    fade && 'mask-[radial-gradient(ellipse_60%_60%_at_50%_0%,black_20%,transparent_100%)]',
+    className,
+  ]}
+  aria-hidden="true"
+>
+</div>

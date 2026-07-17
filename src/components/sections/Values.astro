@@ -1,0 +1,79 @@
+---
+import Container from "../ui/Container.astro";
+import SectionHeading from "../ui/SectionHeading.astro";
+import Card from "../ui/Card.astro";
+import { Icon } from "astro-icon/components";
+
+import { standFor, avoid } from "../../constants/values";
+---
+
+<section id="values" class="bg-background py-20 sm:py-28">
+  <Container>
+    <SectionHeading
+      badge="Our Values"
+      title="Growth Guided by Islamic Values."
+      description="Being your Shariah-compliant growth partner is more than a tagline. It means building businesses where every strategy, campaign, and decision is guided by Islamic principles."
+    />
+
+    <!-- Cards -->
+
+    <div class="mt-16 grid gap-8 md:grid-cols-2">
+      <Card title="What We Stand For">
+        <ul class="space-y-5">
+          {
+            standFor.map((item) => (
+              <li class="flex items-center gap-4">
+                <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent/20 text-accent-light">
+                  <Icon name="heroicons:check" class="h-5 w-5" />
+                </div>
+
+                <span class="text-text">{item}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </Card>
+
+      <Card title="What We Avoid">
+        <ul class="space-y-5">
+          {
+            avoid.map((item) => (
+              <li class="flex items-center gap-4">
+                <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-red-500/10 text-red-400">
+                  <Icon name="heroicons:x-mark" class="h-5 w-5" />
+                </div>
+
+                <span class="text-text">{item}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </Card>
+    </div>
+
+    <!-- Closing Statement -->
+
+    <Card class="mx-auto mt-24">
+      <div class="flex flex-col items-center text-center">
+        <div
+          class="mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-accent/15 text-accent-light"
+        >
+          <Icon name="heroicons:sparkles" class="h-7 w-7" />
+        </div>
+
+        <blockquote
+          class="max-w-3xl text-3xl font-semibold leading-relaxed text-text"
+        >
+          Businesses should never have to choose between success and their
+          values.
+        </blockquote>
+
+        <div class="mt-6 h-px w-20 bg-accent-light/30"></div>
+
+        <p class="mt-6 text-xl font-medium text-accent-light">
+          They should be able to have both.
+        </p>
+      </div>
+    </Card>
+  </Container>
+</section>
