@@ -1,7 +1,8 @@
 {
   "name": "grovera",
-  "type": "module",
   "version": "0.0.1",
+  "type": "module",
+  "packageManager": "pnpm@10.17.1",
   "engines": {
     "node": ">=22.12.0"
   },
@@ -19,5 +20,4 @@
     "astro-icon": "^1.1.5",
     "tailwindcss": "^4.3.1"
   }
-  
 }
