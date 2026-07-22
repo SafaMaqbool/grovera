@@ -6,7 +6,7 @@ import GridBackground from '../ui/GridBackground.astro';
 import Container from '../ui/Container.astro';
 ---
 
-<section class="relative overflow-hidden pt-40 pb-20 sm:pt-48 sm:pb-28" id="hero">
+<section class="relative overflow-hidden pt-40 pb-14 sm:pt-48 sm:pb-20" id="hero">
   <GridBackground />
 
   <!-- Mouse-following spotlight -->
@@ -79,18 +79,18 @@ import Container from '../ui/Container.astro';
       </div>
 
       <!-- floating card: growth rate -->
-      <div class="absolute -left-2 top-2 hidden animate-float rounded-2xl border border-white/10 bg-surface/90 px-5 py-4 shadow-card backdrop-blur-md sm:block">
-        <p class="text-xs font-medium uppercase tracking-wide text-text-muted">Growth Rate</p>
-        <p class="mt-1 text-2xl font-bold text-text">+248%</p>
+      <div class="absolute -left-2 top-2 animate-float rounded-2xl border border-white/10 bg-surface/90 px-3 py-3 shadow-card backdrop-blur-md sm:px-5 sm:py-4">
+        <p class="text-[10px] font-medium uppercase tracking-wide text-text-muted sm:text-xs">Growth Rate</p>
+        <p class="mt-1 text-lg font-bold text-text sm:text-2xl">+248%</p>
       </div>
 
       <!-- floating card: conversions -->
       <div
-        class="absolute -right-2 top-16 hidden animate-float rounded-2xl border border-white/10 bg-surface/90 px-5 py-4 shadow-card backdrop-blur-md sm:block"
+        class="absolute -right-2 top-16 animate-float rounded-2xl border border-white/10 bg-surface/90 px-3 py-3 shadow-card backdrop-blur-md sm:px-5 sm:py-4"
         style="animation-delay: 1.2s;"
       >
-        <p class="text-xs font-medium uppercase tracking-wide text-text-muted">Conversions</p>
-        <p class="mt-1 text-2xl font-bold text-accent-light">3.4x</p>
+        <p class="text-[10px] font-medium uppercase tracking-wide text-text-muted sm:text-xs">Conversions</p>
+        <p class="mt-1 text-lg font-bold text-accent-light sm:text-2xl">3.4x</p>
       </div>
     </div>
   </Container>
