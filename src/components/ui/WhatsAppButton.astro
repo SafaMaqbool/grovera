@@ -1,0 +1,17 @@
+---
+import { SITE } from "../../constants/site";
+
+const href = `https://wa.me/${SITE.whatsapp}`;
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Chat with us on WhatsApp"
+  class="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-black/20 transition-transform duration-300 ease-out hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-light focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+>
+  <svg viewBox="0 0 32 32" class="h-8 w-8" fill="currentColor" aria-hidden="true">
+    <path d="M16.001 3C9.096 3 3.5 8.596 3.5 15.5c0 2.343.646 4.53 1.769 6.401L3 29l7.297-2.229A12.44 12.44 0 0 0 16.001 28C22.906 28 28.5 22.404 28.5 15.5S22.906 3 16.001 3Zm0 22.6a10.06 10.06 0 0 1-5.14-1.41l-.369-.219-4.33 1.323 1.34-4.219-.24-.386A10.06 10.06 0 0 1 5.9 15.5c0-5.577 4.535-10.1 10.1-10.1 5.578 0 10.1 4.535 10.1 10.1 0 5.578-4.522 10.1-10.099 10.1Zm5.53-7.567c-.301-.15-1.78-.879-2.056-.979-.276-.1-.477-.15-.678.15-.2.301-.777.979-.953 1.18-.176.2-.351.226-.652.075-.301-.15-1.269-.468-2.418-1.492-.894-.797-1.497-1.782-1.672-2.083-.176-.301-.019-.464.132-.614.135-.135.301-.351.452-.527.15-.176.2-.301.301-.502.1-.2.05-.376-.025-.527-.075-.15-.678-1.635-.929-2.239-.245-.588-.494-.508-.678-.517l-.577-.01c-.2 0-.527.075-.803.376-.276.301-1.054 1.03-1.054 2.512s1.08 2.913 1.23 3.114c.15.2 2.126 3.246 5.152 4.552.72.311 1.281.497 1.719.636.722.23 1.379.198 1.899.12.579-.087 1.78-.728 2.031-1.43.251-.702.251-1.304.176-1.43-.075-.125-.276-.2-.577-.35Z"></path>
+  </svg>
+</a>

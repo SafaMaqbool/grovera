@@ -1,6 +1,7 @@
 ---
 import Footer from "../components/layout/Footer.astro";
 import Header from "../components/layout/Header.astro";
+import WhatsAppButton from "../components/ui/WhatsAppButton.astro";
 import { SITE } from "../constants/site";
 import "../styles/global.css";
 
@@ -39,5 +40,6 @@ const { title = SITE.title, description = SITE.description } = Astro.props;
     <Header />
     <slot />
     <Footer />
+    <WhatsAppButton />
   </body>
 </html>

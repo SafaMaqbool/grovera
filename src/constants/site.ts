@@ -12,6 +12,8 @@ export const SITE = {
 
   author: "Grovera",
 
+  whatsapp: "923260529836",
+
   keywords: [
     "Marketing Agency",
     "Educational Marketing",
