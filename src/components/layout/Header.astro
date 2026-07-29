@@ -1,8 +1,8 @@
 ---
-import Container from "../ui/Container.astro";
-import Button from "../ui/Button.astro";
-import { navLinks } from "../../constants/navlinks";
-import Logo from "../../assets/images/grovera-logo.svg";
+import Container from '../ui/Container.astro';
+import Button from '../ui/Button.astro';
+import { navLinks } from '../../constants/navlinks';
+import Logo from '../../assets/images/grovera-logo.svg';
 ---
 
 <header class="fixed inset-x-0 top-0 z-50" id="site-header">
@@ -92,63 +92,61 @@ import Logo from "../../assets/images/grovera-logo.svg";
         ))
       }
       <div class="mt-2 px-3">
-        <Button href="#cta" variant="primary" class="w-full"
-          >Let's Grow Together</Button
-        >
+        <Button href="#cta" variant="primary" class="w-full">Let's Grow Together</Button>
       </div>
     </Container>
   </div>
 </header>
 
 <script>
-  const headerInner = document.getElementById("header-inner");
-  const toggle = document.getElementById("menu-toggle");
-  const menu = document.getElementById("mobile-menu");
-  const iconOpen = document.getElementById("icon-open");
-  const iconClose = document.getElementById("icon-close");
+  const headerInner = document.getElementById('header-inner');
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('icon-open');
+  const iconClose = document.getElementById('icon-close');
 
   const setScrolledState = () => {
     if (!headerInner) return;
     if (window.scrollY > 8) {
       headerInner.classList.add(
-        "bg-background/80",
-        "backdrop-blur-md",
-        "border-b",
-        "border-white/10",
+        'bg-background/80',
+        'backdrop-blur-md',
+        'border-b',
+        'border-white/10',
       );
     } else {
       headerInner.classList.remove(
-        "bg-background/80",
-        "backdrop-blur-md",
-        "border-b",
-        "border-white/10",
+        'bg-background/80',
+        'backdrop-blur-md',
+        'border-b',
+        'border-white/10',
       );
     }
   };
 
   setScrolledState();
-  window.addEventListener("scroll", setScrolledState, { passive: true });
+  window.addEventListener('scroll', setScrolledState, { passive: true });
 
   const closeMenu = () => {
-    menu?.classList.add("hidden");
-    iconOpen?.classList.remove("hidden");
-    iconClose?.classList.add("hidden");
-    toggle?.setAttribute("aria-expanded", "false");
+    menu?.classList.add('hidden');
+    iconOpen?.classList.remove('hidden');
+    iconClose?.classList.add('hidden');
+    toggle?.setAttribute('aria-expanded', 'false');
   };
 
-  toggle?.addEventListener("click", () => {
-    const isHidden = menu?.classList.contains("hidden");
+  toggle?.addEventListener('click', () => {
+    const isHidden = menu?.classList.contains('hidden');
     if (isHidden) {
-      menu?.classList.remove("hidden");
-      iconOpen?.classList.add("hidden");
-      iconClose?.classList.remove("hidden");
-      toggle.setAttribute("aria-expanded", "true");
+      menu?.classList.remove('hidden');
+      iconOpen?.classList.add('hidden');
+      iconClose?.classList.remove('hidden');
+      toggle.setAttribute('aria-expanded', 'true');
     } else {
       closeMenu();
     }
   });
 
-  document.querySelectorAll("[data-mobile-link]").forEach((el) => {
-    el.addEventListener("click", closeMenu);
+  document.querySelectorAll('[data-mobile-link]').forEach((el) => {
+    el.addEventListener('click', closeMenu);
   });
 </script>

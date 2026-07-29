@@ -1,5 +1,4 @@
 ---
-
 import Button from '../ui/Button.astro';
 import Badge from '../ui/Badge.astro';
 import GridBackground from '../ui/GridBackground.astro';
@@ -31,15 +30,23 @@ import Container from '../ui/Container.astro';
         <Badge>Shariah-Compliant Growth Partner</Badge>
       </div>
 
-      <h1 class="fade-up delay-1 mt-6 text-balance text-4xl font-bold leading-[1.1] tracking-tight text-text sm:text-6xl">
+      <h1
+        class="fade-up delay-1 mt-6 text-balance text-4xl font-bold leading-[1.1] tracking-tight text-text sm:text-6xl"
+      >
         Grow Your Business Without Compromising Your Values.
       </h1>
 
-      <p class="fade-up delay-2 mx-auto mt-6 max-w-xl text-balance text-base leading-relaxed text-text-muted sm:text-lg">
-        At Grovera, we help educational institutes grow through strategic marketing rooted in Islamic values — because we believe lasting growth should never come at the cost of what matters most.
+      <p
+        class="fade-up delay-2 mx-auto mt-6 max-w-xl text-balance text-base leading-relaxed text-text-muted sm:text-lg"
+      >
+        At Grovera, we help educational institutes grow through strategic marketing rooted in
+        Islamic values — because we believe lasting growth should never come at the cost of what
+        matters most.
       </p>
 
-      <div class="fade-up delay-3 mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+      <div
+        class="fade-up delay-3 mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
+      >
         <Button href="#cta" variant="primary">Let's Build Your Business the Right Way</Button>
       </div>
     </div>
@@ -47,19 +54,28 @@ import Container from '../ui/Container.astro';
     <!-- Abstract floating analytics UI cards + growth graph -->
     <div class="fade-up delay-4 relative mx-auto mt-20 h-85 max-w-4xl sm:h-100">
       <!-- growth graph -->
-      <div class="absolute inset-x-0 bottom-0 h-[70%] rounded-3xl border border-white/10 bg-white/2 p-6 sm:p-8">
-        <svg viewBox="0 0 600 220" class="h-full w-full" preserveAspectRatio="none" aria-hidden="true">
+      <div
+        class="absolute inset-x-0 bottom-0 h-[70%] rounded-3xl border border-white/10 bg-white/2 p-6 sm:p-8"
+      >
+        <svg
+          viewBox="0 0 600 220"
+          class="h-full w-full"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
           <defs>
             <linearGradient id="graphFill" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" style="stop-color: var(--color-accent-vivid);" stop-opacity="0.35" />
-              <stop offset="100%" style="stop-color: var(--color-accent-vivid);" stop-opacity="0" />
+              <stop offset="0%" style="stop-color: var(--color-accent-vivid);" stop-opacity="0.35"
+              ></stop>
+              <stop offset="100%" style="stop-color: var(--color-accent-vivid);" stop-opacity="0"
+              ></stop>
             </linearGradient>
           </defs>
           <g stroke="rgba(255,255,255,0.06)" stroke-width="1">
-            <line x1="0" y1="40" x2="600" y2="40" />
-            <line x1="0" y1="90" x2="600" y2="90" />
-            <line x1="0" y1="140" x2="600" y2="140" />
-            <line x1="0" y1="190" x2="600" y2="190" />
+            <line x1="0" y1="40" x2="600" y2="40"></line>
+            <line x1="0" y1="90" x2="600" y2="90"></line>
+            <line x1="0" y1="140" x2="600" y2="140"></line>
+            <line x1="0" y1="190" x2="600" y2="190"></line>
           </g>
           <path
             d="M0,180 C60,170 100,150 150,140 C200,130 240,160 290,130 C340,100 380,60 430,55 C480,50 520,70 600,20"
@@ -68,12 +84,10 @@ import Container from '../ui/Container.astro';
             stroke-linecap="round"
             pathLength="1000"
             class="animate-grow-line"
-            style="stroke-dasharray: 1000; stroke: var(--color-accent-vivid);"
-          />
+            style="stroke-dasharray: 1000; stroke: var(--color-accent-vivid);"></path>
           <path
             d="M0,180 C60,170 100,150 150,140 C200,130 240,160 290,130 C340,100 380,60 430,55 C480,50 520,70 600,20 L600,220 L0,220 Z"
-            fill="url(#graphFill)"
-          />
+            fill="url(#graphFill)"></path>
         </svg>
       </div>
 
@@ -82,7 +96,9 @@ import Container from '../ui/Container.astro';
         class="absolute -left-2 top-2 animate-float rounded-2xl border border-white/10 bg-surface/90 px-3 py-3 shadow-card backdrop-blur-md sm:px-5 sm:py-4"
         aria-hidden="true"
       >
-        <p class="text-[10px] font-medium uppercase tracking-wide text-text-muted sm:text-xs">Growth Rate</p>
+        <p class="text-[10px] font-medium uppercase tracking-wide text-text-muted sm:text-xs">
+          Growth Rate
+        </p>
         <p class="mt-1 text-lg font-bold text-text sm:text-2xl">+248%</p>
       </div>
 
@@ -92,7 +108,9 @@ import Container from '../ui/Container.astro';
         style="animation-delay: 1.2s;"
         aria-hidden="true"
       >
-        <p class="text-[10px] font-medium uppercase tracking-wide text-text-muted sm:text-xs">Conversions</p>
+        <p class="text-[10px] font-medium uppercase tracking-wide text-text-muted sm:text-xs">
+          Conversions
+        </p>
         <p class="mt-1 text-lg font-bold text-accent-light sm:text-2xl">3.4x</p>
       </div>
     </div>

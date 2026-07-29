@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
   --color-background: #102514;
@@ -99,7 +99,7 @@
 }
 
 .link-underline::after {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   bottom: -2px;
@@ -145,6 +145,7 @@
   .animate-float,
   .animate-pulse-soft,
   .animate-grow-line,
-  .animate-pulse { animation: none !important; }
+  .animate-pulse {
+    animation: none !important;
+  }
 }
-

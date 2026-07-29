@@ -4,7 +4,6 @@ import { whyChooseCards } from '../../constants/WhyChooseUs';
 import SectionHeading from '../ui/SectionHeading.astro';
 import Card from '../ui/Card.astro';
 import Container from '../ui/Container.astro';
-
 ---
 
 <section class="relative py-12 sm:py-20" id="why-choose-us">
@@ -12,12 +11,14 @@ import Container from '../ui/Container.astro';
     <SectionHeading badge="Why Grovera" title="Why Businesses Choose Grovera" class="max-w-5xl" />
 
     <div class="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2">
-      {whyChooseCards.map((card) => (
-        <Card>
-          <h3 class="text-lg font-semibold text-text">{card.title}</h3>
-          <p class="mt-2 text-sm leading-relaxed text-text-muted">{card.description}</p>
-        </Card>
-      ))}
+      {
+        whyChooseCards.map((card) => (
+          <Card>
+            <h3 class="text-lg font-semibold text-text">{card.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-text-muted">{card.description}</p>
+          </Card>
+        ))
+      }
     </div>
   </Container>
 </section>
