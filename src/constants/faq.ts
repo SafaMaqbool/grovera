@@ -11,7 +11,8 @@ export const faqItems: FaqItem[] = [
   },
   {
     question: 'Can Grovera help businesses outside Pakistan?',
-    answer: 'Yes. While our current focus is Pakistan, we are also open to working with businesses internationally.',
+    answer:
+      'Yes. While our current focus is Pakistan, we are also open to working with businesses internationally.',
   },
   {
     question: 'Do you offer individual marketing services or complete marketing solutions?',

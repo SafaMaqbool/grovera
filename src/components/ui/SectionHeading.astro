@@ -25,9 +25,16 @@ const {
   <h2 class="mt-6 text-balance text-3xl font-bold tracking-tight text-text sm:text-4xl lg:text-5xl">
     {title}
   </h2>
-  {description && (
-    <p class:list={['mx-auto mt-5 text-balance text-base leading-relaxed text-text-muted sm:text-lg', descriptionClass]}>
-      {description}
-    </p>
-  )}
+  {
+    description && (
+      <p
+        class:list={[
+          'mx-auto mt-5 text-balance text-base leading-relaxed text-text-muted sm:text-lg',
+          descriptionClass,
+        ]}
+      >
+        {description}
+      </p>
+    )
+  }
 </div>

@@ -9,25 +9,29 @@ export const services: Service[] = [
   {
     id: 'strategy',
     title: 'Strategy & Planning',
-    description: 'Clear marketing strategies built around your business, your audience, and your long-term goals.',
+    description:
+      'Clear marketing strategies built around your business, your audience, and your long-term goals.',
     icon: 'strategy',
   },
   {
     id: 'paid-advertising',
     title: 'Paid Advertising',
-    description: 'Performance-focused campaigns designed to reach the right audience and deliver measurable results.',
+    description:
+      'Performance-focused campaigns designed to reach the right audience and deliver measurable results.',
     icon: 'ads',
   },
   {
     id: 'lead-generation',
     title: 'Lead Generation',
-    description: 'Helping businesses generate high-quality enquiries through targeted marketing strategies.',
+    description:
+      'Helping businesses generate high-quality enquiries through targeted marketing strategies.',
     icon: 'leads',
   },
   {
     id: 'social-media',
     title: 'Social Media Management',
-    description: 'Building a professional and consistent online presence that strengthens your brand.',
+    description:
+      'Building a professional and consistent online presence that strengthens your brand.',
     icon: 'social',
   },
   {
@@ -45,7 +49,8 @@ export const services: Service[] = [
   {
     id: 'website-development',
     title: 'Website Development',
-    description: 'Modern, responsive websites designed to represent your business and support your growth.',
+    description:
+      'Modern, responsive websites designed to represent your business and support your growth.',
     icon: 'website',
   },
 ];

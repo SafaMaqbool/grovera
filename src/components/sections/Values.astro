@@ -1,13 +1,14 @@
 ---
-import Container from "../ui/Container.astro";
-import SectionHeading from "../ui/SectionHeading.astro";
-import Card from "../ui/Card.astro";
-import { Icon } from "astro-icon/components";
+import Container from '../ui/Container.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+import Card from '../ui/Card.astro';
+import Section from '../ui/Section.astro';
+import { Icon } from 'astro-icon/components';
 
-import { standFor, avoid } from "../../constants/values";
+import { standFor, avoid } from '../../constants/values';
 ---
 
-<section id="values" class="bg-background py-20 sm:py-28">
+<Section id="values" background>
   <Container>
     <SectionHeading
       badge="Our Values"
@@ -39,7 +40,7 @@ import { standFor, avoid } from "../../constants/values";
           {
             avoid.map((item) => (
               <li class="flex items-center gap-4">
-                <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-red-500/10 text-red-400">
+                <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-danger/10 text-danger-light">
                   <Icon name="heroicons:x-mark" class="h-5 w-5" />
                 </div>
 
@@ -61,19 +62,14 @@ import { standFor, avoid } from "../../constants/values";
           <Icon name="heroicons:sparkles" class="h-7 w-7" />
         </div>
 
-        <blockquote
-          class="max-w-3xl text-3xl font-semibold leading-relaxed text-text"
-        >
-          Businesses should never have to choose between success and their
-          values.
+        <blockquote class="max-w-3xl text-3xl font-semibold leading-relaxed text-text">
+          Businesses should never have to choose between success and their values.
         </blockquote>
 
         <div class="mt-6 h-px w-20 bg-accent-light/30"></div>
 
-        <p class="mt-6 text-xl font-medium text-accent-light">
-          They should be able to have both.
-        </p>
+        <p class="mt-6 text-xl font-medium text-accent-light">They should be able to have both.</p>
       </div>
     </Card>
   </Container>
-</section>
+</Section>
