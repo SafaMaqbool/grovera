@@ -13,7 +13,7 @@ import Container from '../ui/Container.astro';
   <div
     id="spotlight"
     class="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500"
-    style="background: radial-gradient(600px circle at var(--x, 50%) var(--y, 20%), rgba(168,199,106,0.12), transparent 70%);"
+    style="background: radial-gradient(600px circle at var(--x, 50%) var(--y, 20%), color-mix(in srgb, var(--color-accent-vivid) 12%, transparent), transparent 70%);"
     aria-hidden="true"
   >
   </div>
@@ -51,8 +51,8 @@ import Container from '../ui/Container.astro';
         <svg viewBox="0 0 600 220" class="h-full w-full" preserveAspectRatio="none" aria-hidden="true">
           <defs>
             <linearGradient id="graphFill" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#A8C76A" stop-opacity="0.35" />
-              <stop offset="100%" stop-color="#A8C76A" stop-opacity="0" />
+              <stop offset="0%" style="stop-color: var(--color-accent-vivid);" stop-opacity="0.35" />
+              <stop offset="100%" style="stop-color: var(--color-accent-vivid);" stop-opacity="0" />
             </linearGradient>
           </defs>
           <g stroke="rgba(255,255,255,0.06)" stroke-width="1">
@@ -64,12 +64,11 @@ import Container from '../ui/Container.astro';
           <path
             d="M0,180 C60,170 100,150 150,140 C200,130 240,160 290,130 C340,100 380,60 430,55 C480,50 520,70 600,20"
             fill="none"
-            stroke="#A8C76A"
             stroke-width="2.5"
             stroke-linecap="round"
             pathLength="1000"
             class="animate-grow-line"
-            style="stroke-dasharray: 1000;"
+            style="stroke-dasharray: 1000; stroke: var(--color-accent-vivid);"
           />
           <path
             d="M0,180 C60,170 100,150 150,140 C200,130 240,160 290,130 C340,100 380,60 430,55 C480,50 520,70 600,20 L600,220 L0,220 Z"
