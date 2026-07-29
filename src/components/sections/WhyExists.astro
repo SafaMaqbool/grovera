@@ -2,9 +2,10 @@
 import Container from '../ui/Container.astro';
 import SectionHeading from '../ui/SectionHeading.astro';
 import StoryVisual from '../ui/StoryVisual.astro';
+import Section from '../ui/Section.astro';
 ---
 
-<section id="story" class="bg-background py-12 sm:py-20">
+<Section id="story" background>
   <Container>
     <SectionHeading badge="Our Story" title="Why Grovera Exists" />
 
@@ -39,4 +40,4 @@ import StoryVisual from '../ui/StoryVisual.astro';
       <StoryVisual />
     </div>
   </Container>
-</section>
+</Section>

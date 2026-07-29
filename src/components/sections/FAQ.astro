@@ -2,9 +2,10 @@
 import SectionHeading from '../ui/SectionHeading.astro';
 import { faqItems } from '../../constants/faq';
 import Container from '../ui/Container.astro';
+import Section from '../ui/Section.astro';
 ---
 
-<section class="relative py-12 sm:py-20" id="faq">
+<Section id="faq" class="relative">
   <Container>
     <SectionHeading badge="FAQ" title="Frequently Asked Questions" class="max-w-5xl" />
 
@@ -34,7 +35,7 @@ import Container from '../ui/Container.astro';
       }
     </div>
   </Container>
-</section>
+</Section>
 
 <style>
   details > summary::-webkit-details-marker {
