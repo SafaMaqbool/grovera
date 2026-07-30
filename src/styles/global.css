@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
   --color-background: #102514;
@@ -9,6 +9,8 @@
 
   --color-accent-light: #8da750;
 
+  --color-accent-vivid: #a8c76a;
+
   --color-surface: #183320;
 
   --color-white: #ffffff;
@@ -16,6 +18,10 @@
   --color-text: #ffffff;
 
   --color-text-muted: #bfc7bc;
+
+  --color-danger: #ef4444;
+
+  --color-danger-light: #f87171;
 
   --shadow-glow: 0 0 40px -8px rgba(95, 141, 59, 0.45);
   --shadow-card: 0 4px 24px -8px rgba(0, 0, 0, 0.35);
@@ -93,7 +99,7 @@
 }
 
 .link-underline::after {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   bottom: -2px;
@@ -139,6 +145,7 @@
   .animate-float,
   .animate-pulse-soft,
   .animate-grow-line,
-  .animate-pulse { animation: none !important; }
+  .animate-pulse {
+    animation: none !important;
+  }
 }
-

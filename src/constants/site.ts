@@ -1,24 +1,24 @@
 export const SITE = {
-  name: "Grovera",
+  name: 'Grovera',
 
-  title: "Grovera | Shariah-Compliant Growth Partner",
+  title: 'Grovera | Shariah-Compliant Growth Partner',
 
   description:
-    "Grovera helps educational institutes and purpose-driven businesses grow through strategic marketing rooted in Islamic values.",
+    'Grovera helps educational institutes and purpose-driven businesses grow through strategic marketing rooted in Islamic values.',
 
-  url: "https://grovera.io",
+  url: 'https://grovera.io',
 
-  locale: "en-PK",
+  locale: 'en-PK',
 
-  author: "Grovera",
+  author: 'Grovera',
 
   whatsapp: "923260529836",
 
   keywords: [
-    "Marketing Agency",
-    "Educational Marketing",
-    "Digital Marketing Pakistan",
-    "Shariah Compliant Marketing",
-    "Grovera",
+    'Marketing Agency',
+    'Educational Marketing',
+    'Digital Marketing Pakistan',
+    'Shariah Compliant Marketing',
+    'Grovera',
   ],
 };
