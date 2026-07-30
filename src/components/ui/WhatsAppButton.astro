@@ -1,0 +1,17 @@
+---
+import { Icon } from 'astro-icon/components';
+import { SITE } from '../../constants/site';
+
+const message = 'Hi Grovera, I would like to know more about your services';
+const href = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(message)}`;
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Chat with us on WhatsApp"
+  class="fixed bottom-5 right-5 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-black/20 transition-transform duration-300 ease-out hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-light focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+>
+  <Icon name="simple-icons:whatsapp" class="h-8 w-8" aria-hidden="true" />
+</a>
