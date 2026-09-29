@@ -19,7 +19,7 @@ export const footerLinks = {
     { label: 'Terms of Service', href: '#' },
   ],
   icons: [
-    { label: 'Twitter', href: 'https://twitter.com/groveradigital', icon: 'simple-icons:twitter' },
+    { label: 'X (Twitter)', href: 'https://x.com/groveradigital', icon: 'simple-icons:x' },
     {
       label: 'Instagram',
       href: 'https://www.instagram.com/groveradigital/',

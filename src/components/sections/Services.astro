@@ -17,10 +17,11 @@ import Section from '../ui/Section.astro';
       descriptionClass="max-w-4xl"
     />
 
-    <div class="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+    <!-- Flex-wrap rather than grid so an incomplete last row is centred. -->
+    <div class="mt-10 flex flex-wrap justify-center gap-5 sm:mt-16">
       {
         services.map((service) => (
-          <Card class="group">
+          <Card class="group w-full sm:w-[calc((100%_-_1.25rem)/2)] lg:w-[calc((100%_-_2.5rem)/3)]">
             <div class="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-surface/50 text-accent-light transition-colors duration-300 group-hover:border-accent-light/40 group-hover:text-accent-light/80">
               <ServiceIcon icon={service.icon} />
             </div>

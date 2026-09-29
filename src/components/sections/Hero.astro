@@ -5,7 +5,7 @@ import GridBackground from '../ui/GridBackground.astro';
 import Container from '../ui/Container.astro';
 ---
 
-<section class="relative overflow-hidden pt-40 pb-12 sm:pt-48 sm:pb-20" id="hero">
+<section class="relative overflow-hidden pt-32 pb-8 sm:pt-48 sm:pb-20" id="hero">
   <GridBackground />
 
   <!-- Mouse-following spotlight -->
@@ -37,7 +37,7 @@ import Container from '../ui/Container.astro';
       </h1>
 
       <p
-        class="fade-up delay-2 mx-auto mt-6 max-w-xl text-balance text-base leading-relaxed text-text-muted sm:text-lg"
+        class="fade-up delay-2 mx-auto mt-6 max-w-xl text-left text-base leading-relaxed text-text-muted sm:text-lg md:text-balance md:text-center"
       >
         At Grovera, we help educational institutes grow through strategic marketing rooted in
         Islamic values — because we believe lasting growth should never come at the cost of what
@@ -47,12 +47,14 @@ import Container from '../ui/Container.astro';
       <div
         class="fade-up delay-3 mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
       >
-        <Button href="#cta" variant="primary">Let's Build Your Business the Right Way</Button>
+        <Button href="#cta" variant="primary" class="max-sm:px-5 max-sm:text-xs">
+          Let's Build Your Business the Right Way
+        </Button>
       </div>
     </div>
 
     <!-- Abstract floating analytics UI cards + growth graph -->
-    <div class="fade-up delay-4 relative mx-auto mt-20 h-85 max-w-4xl sm:h-100">
+    <div class="fade-up delay-4 relative mx-auto mt-14 h-85 sm:mt-20 max-w-4xl sm:h-100">
       <!-- growth graph -->
       <div
         class="absolute inset-x-0 bottom-0 h-[70%] rounded-3xl border border-white/10 bg-white/2 p-6 sm:p-8"
