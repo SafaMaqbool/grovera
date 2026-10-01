@@ -8,7 +8,7 @@ interface Props extends HTMLAttributes<'section'> {
 
 const { padding = 'default', background = false, class: className, ...rest } = Astro.props;
 
-const paddingClass = padding === 'tight' ? 'py-10 sm:py-16' : 'py-12 sm:py-20';
+const paddingClass = padding === 'tight' ? 'py-8 sm:py-16' : 'py-10 sm:py-20';
 ---
 
 <section class:list={[paddingClass, { 'bg-background': background }, className]} {...rest}>

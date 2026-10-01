@@ -3,17 +3,29 @@ import SectionHeading from '../ui/SectionHeading.astro';
 import { faqItems } from '../../constants/faq';
 import Container from '../ui/Container.astro';
 import Section from '../ui/Section.astro';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+};
 ---
 
 <Section id="faq" class="relative">
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
   <Container>
     <SectionHeading badge="FAQ" title="Frequently Asked Questions" class="max-w-5xl" />
 
-    <div class="mx-auto mt-16 max-w-3xl divide-y divide-white/10 border-t border-white/10">
+    <div class="mx-auto mt-10 max-w-3xl divide-y divide-white/10 border-t border-white/10 sm:mt-16">
       {
         faqItems.map((item) => (
-          <details class="group py-6">
-            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-medium text-text transition-colors marker:content-none focus-visible:outline-none sm:text-lg">
+          <details class="group">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 rounded-lg py-6 text-base font-medium text-text transition-colors marker:content-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-light focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:text-lg">
               {item.question}
               <svg
                 class="h-4 w-4 shrink-0 text-text-muted transition-transform duration-300 group-open:rotate-45"
@@ -27,7 +39,7 @@ import Section from '../ui/Section.astro';
                 <path d="M8 3v10M3 8h10" />
               </svg>
             </summary>
-            <p class="mt-4 max-w-2xl text-sm leading-relaxed text-text-muted sm:text-base">
+            <p class="-mt-2 max-w-2xl pb-6 text-sm leading-relaxed text-text-muted sm:text-base">
               {item.answer}
             </p>
           </details>
