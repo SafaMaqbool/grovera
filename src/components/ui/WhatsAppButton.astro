@@ -12,21 +12,29 @@ const href = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(message)}
   target="_blank"
   rel="noopener noreferrer"
   aria-label="Chat with us on WhatsApp"
-  class="invisible fixed bottom-4 right-4 z-40 flex translate-y-4 opacity-0 h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-black/20 transition-all duration-300 ease-out hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-light focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:bottom-5 sm:right-5 sm:h-14 sm:w-14"
+  class="fixed bottom-4 right-4 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-black/20 transition-all duration-300 ease-out hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-light focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:bottom-5 sm:right-5 sm:h-14 sm:w-14"
 >
   <Icon name="simple-icons:whatsapp" class="h-7 w-7 sm:h-8 sm:w-8" aria-hidden="true" />
 </a>
 
+<style>
+  /* Hidden while the hero is on screen so it does not sit on the hero's floating cards.
+     Scoped to .js so the link stays visible if scripts are disabled or blocked. */
+  :global(.js) #whatsapp-button:not([data-visible]) {
+    visibility: hidden;
+    opacity: 0;
+    translate: 0 1rem;
+  }
+</style>
+
 <script>
-  // Hidden while the hero is on screen so it does not sit on the hero's floating cards.
   const button = document.getElementById('whatsapp-button');
   const hero = document.getElementById('hero');
-  const hiddenClasses = ['invisible', 'opacity-0', 'translate-y-4'];
 
   if (button) {
     const update = () => {
       const heroPassed = !hero || hero.getBoundingClientRect().bottom < window.innerHeight * 0.5;
-      hiddenClasses.forEach((c) => button.classList.toggle(c, !heroPassed));
+      button.toggleAttribute('data-visible', heroPassed);
     };
 
     update();

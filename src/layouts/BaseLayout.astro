@@ -34,6 +34,10 @@ const organizationSchema = {
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <!-- Runs before first paint; lets CSS hide JS-enhanced UI only when scripts actually run. -->
+    <script is:inline>
+      document.documentElement.classList.add('js');
+    </script>
     <link rel="canonical" href={SITE.url} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
