@@ -39,6 +39,11 @@
   --spacing-225: 56.25rem;
 }
 
+/* Keeps anchor targets clear of the fixed header. */
+html {
+  scroll-padding-top: 6rem;
+}
+
 @keyframes fade-up {
   from {
     opacity: 0;
@@ -111,7 +116,9 @@
   transition: transform 0.3s ease-out;
 }
 
-.link-underline:hover::after {
+/* Also fires when a padded parent link is hovered, so tap targets can grow without moving the line. */
+.link-underline:hover::after,
+a:hover > .link-underline::after {
   transform: scaleX(1);
   transform-origin: left;
 }

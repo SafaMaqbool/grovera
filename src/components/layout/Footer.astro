@@ -4,40 +4,42 @@ import Container from '../ui/Container.astro';
 import Logo from '../../assets/images/grovera-logo.svg';
 import { Icon } from 'astro-icon/components';
 const year = new Date().getFullYear();
+const homeHref = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 ---
 
 <footer class="relative border-t border-white/10 bg-surface/40">
-  <Container class="py-16 sm:py-20 lg:py-24">
+  <!-- Extra bottom padding keeps the floating WhatsApp button off the social links. -->
+  <Container class="pt-16 pb-24 sm:pt-20 lg:pt-24">
     <div class="grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-12 lg:gap-12">
       <div class="sm:col-span-2 lg:col-span-4">
-        <a href="/" class="inline-flex items-center gap-2">
+        <a href={homeHref} aria-label="Grovera — home" class="inline-flex items-center gap-2">
           <img
             src={Logo.src}
             width={Logo.width}
             height={Logo.height}
-            alt="Grovera Logo"
+            alt=""
             class="h-6 w-auto"
             loading="lazy"
             decoding="async"
           />
         </a>
         <p class="mt-4 max-w-xs text-sm leading-relaxed text-text-muted">
-          A shariah compliant growth partner helping ambitious businesses build brands, websites,
+          A Shariah-compliant growth partner helping ambitious businesses build brands, websites,
           and strategies that perform.
         </p>
       </div>
 
       <div class="lg:col-span-2">
         <h3 class="text-xs font-semibold uppercase tracking-wider text-text-muted">Company</h3>
-        <ul class="mt-5 space-y-3">
+        <ul class="mt-2 lg:mt-5 lg:space-y-3">
           {
             footerLinks.company.map((item) => (
               <li>
                 <a
                   href={item.href}
-                  class="link-underline text-sm text-text-muted transition-colors duration-200 hover:text-text"
+                  class="inline-flex py-3 text-sm text-text-muted transition-colors duration-200 hover:text-text lg:py-0"
                 >
-                  {item.label}
+                  <span class="link-underline">{item.label}</span>
                 </a>
               </li>
             ))
@@ -47,15 +49,15 @@ const year = new Date().getFullYear();
 
       <div class="lg:col-span-3">
         <h3 class="text-xs font-semibold uppercase tracking-wider text-text-muted">Services</h3>
-        <ul class="mt-5 space-y-3">
+        <ul class="mt-2 lg:mt-5 lg:space-y-3">
           {
             footerLinks.services.map((item) => (
               <li>
                 <a
                   href={item.href}
-                  class="link-underline text-sm text-text-muted transition-colors duration-200 hover:text-text"
+                  class="inline-flex py-3 text-sm text-text-muted transition-colors duration-200 hover:text-text lg:py-0"
                 >
-                  {item.label}
+                  <span class="link-underline">{item.label}</span>
                 </a>
               </li>
             ))
@@ -65,17 +67,17 @@ const year = new Date().getFullYear();
 
       <div class="lg:col-span-3">
         <h3 class="text-xs font-semibold uppercase tracking-wider text-text-muted">Get in Touch</h3>
-        <ul class="mt-5 space-y-3 text-sm text-text-muted">
+        <ul class="mt-2 text-sm text-text-muted lg:mt-5 lg:space-y-3">
           <li>
             <a
               href="mailto:hello@grovera.com"
-              class="link-underline inline-flex items-center gap-2 transition-colors duration-200 hover:text-text"
+              class="inline-flex items-center gap-2 py-3 transition-colors duration-200 hover:text-text lg:py-0"
             >
               <Icon name="heroicons:envelope" class="h-4 w-4 shrink-0" />
-              hello@grovera.com
+              <span class="link-underline">hello@grovera.com</span>
             </a>
           </li>
-          <li class="flex items-center gap-2">
+          <li class="flex items-center gap-2 py-3 lg:py-0">
             <Icon name="heroicons:map-pin" class="h-4 w-4 shrink-0" />
             Karachi, Pakistan
           </li>
