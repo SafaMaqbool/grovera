@@ -3,7 +3,13 @@ import Container from '../ui/Container.astro';
 import Button from '../ui/Button.astro';
 import { navLinks } from '../../constants/navlinks';
 import Logo from '../../assets/images/grovera-logo.svg';
+import { whatsappHref } from '../../constants/site';
 
+interface Props {
+  variant?: 'full' | 'minimal';
+}
+
+const { variant = 'full' } = Astro.props;
 const homeHref = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 ---
 
@@ -21,83 +27,107 @@ const homeHref = import.meta.env.BASE_URL.replace(/\/?$/, '/');
           />
         </a>
 
-        <ul class="hidden items-center gap-8 lg:flex">
-          {
-            navLinks.map((link) => (
-              <li>
-                <a
-                  href={link.href}
-                  class="link-underline text-sm font-medium text-text-muted transition-colors duration-200 hover:text-text"
+        {
+          variant === 'minimal' && (
+            <div class="hidden sm:block">
+              <Button
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="primary"
+                class="px-5! py-2.5! text-xs!"
+              >
+                Message us on WhatsApp
+              </Button>
+            </div>
+          )
+        }
+
+        {
+          variant === 'full' && (
+            <>
+              <ul class="hidden items-center gap-8 lg:flex">
+                {navLinks.map((link) => (
+                  <li>
+                    <a
+                      href={link.href}
+                      class="link-underline text-sm font-medium text-text-muted transition-colors duration-200 hover:text-text"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+
+              <div class="hidden lg:block">
+                <Button href="#cta" variant="primary" class="px-5! py-2.5! text-xs!">
+                  Let's Grow Together
+                </Button>
+              </div>
+
+              <button
+                type="button"
+                id="menu-toggle"
+                class="flex h-11 w-11 items-center justify-center rounded-lg border border-white/10 text-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-light lg:hidden"
+                aria-label="Toggle menu"
+                aria-expanded="false"
+                aria-controls="mobile-menu"
+              >
+                <svg
+                  id="icon-open"
+                  class="h-5 w-5"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
                 >
-                  {link.label}
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-
-        <div class="hidden lg:block">
-          <Button href="#cta" variant="primary" class="px-5! py-2.5! text-xs!">
-            Let's Grow Together
-          </Button>
-        </div>
-
-        <button
-          type="button"
-          id="menu-toggle"
-          class="flex h-11 w-11 items-center justify-center rounded-lg border border-white/10 text-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-light lg:hidden"
-          aria-label="Toggle menu"
-          aria-expanded="false"
-          aria-controls="mobile-menu"
-        >
-          <svg
-            id="icon-open"
-            class="h-5 w-5"
-            viewBox="0 0 20 20"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-          >
-            <path d="M3 5h14M3 10h14M3 15h14"></path>
-          </svg>
-          <svg
-            id="icon-close"
-            class="hidden h-5 w-5"
-            viewBox="0 0 20 20"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-          >
-            <path d="M5 5l10 10M15 5 5 15"></path>
-          </svg>
-        </button>
+                  <path d="M3 5h14M3 10h14M3 15h14" />
+                </svg>
+                <svg
+                  id="icon-close"
+                  class="hidden h-5 w-5"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                >
+                  <path d="M5 5l10 10M15 5 5 15" />
+                </svg>
+              </button>
+            </>
+          )
+        }
       </nav>
     </Container>
   </div>
 
-  <div
-    id="mobile-menu"
-    class="hidden max-h-[calc(100dvh-5.25rem)] overflow-y-auto overscroll-contain border-t border-white/10 bg-background/95 backdrop-blur-md lg:hidden"
-  >
-    <Container class="flex flex-col gap-1 py-4">
-      {
-        navLinks.map((link) => (
-          <a
-            href={link.href}
-            class="rounded-lg px-3 py-3 text-sm font-medium text-text-muted transition-colors hover:bg-white/5 hover:text-text"
-            data-mobile-link
-          >
-            {link.label}
-          </a>
-        ))
-      }
-      <div class="mt-2 px-3" data-mobile-link>
-        <Button href="#cta" variant="primary" class="w-full">Let's Grow Together</Button>
+  {
+    variant === 'full' && (
+      <div
+        id="mobile-menu"
+        class="hidden max-h-[calc(100dvh-5.25rem)] overflow-y-auto overscroll-contain border-t border-white/10 bg-background/95 backdrop-blur-md lg:hidden"
+      >
+        <Container class="flex flex-col gap-1 py-4">
+          {navLinks.map((link) => (
+            <a
+              href={link.href}
+              class="rounded-lg px-3 py-3 text-sm font-medium text-text-muted transition-colors hover:bg-white/5 hover:text-text"
+              data-mobile-link
+            >
+              {link.label}
+            </a>
+          ))}
+          <div class="mt-2 px-3" data-mobile-link>
+            <Button href="#cta" variant="primary" class="w-full">
+              Let's Grow Together
+            </Button>
+          </div>
+        </Container>
       </div>
-    </Container>
-  </div>
+    )
+  }
 </header>
 
 <script>
@@ -129,7 +159,7 @@ const homeHref = import.meta.env.BASE_URL.replace(/\/?$/, '/');
   setScrolledState();
   window.addEventListener('scroll', setScrolledState, { passive: true });
 
-  const isOpen = () => !menu?.classList.contains('hidden');
+  const isOpen = () => !!menu && !menu.classList.contains('hidden');
 
   // The toggle stays reachable so the menu can be closed without a mouse.
   const focusables = () =>

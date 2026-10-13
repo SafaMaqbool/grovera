@@ -4,6 +4,8 @@ interface Props {
   variant?: 'primary' | 'secondary';
   class?: string;
   type?: 'button' | 'submit';
+  target?: string;
+  rel?: string;
 }
 
 const { href, variant = 'primary', class: className = '', type = 'button', ...rest } = Astro.props;

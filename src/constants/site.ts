@@ -12,7 +12,11 @@ export const SITE = {
 
   author: 'Grovera',
 
-  whatsapp: "923260529836",
+  whatsapp: '923260529836',
+
+  // No public Privacy Policy page exists yet. Set this to its URL once it is published;
+  // the services page links to it automatically.
+  privacyPolicyUrl: null as string | null,
 
   keywords: [
     'Marketing Agency',
@@ -22,3 +26,7 @@ export const SITE = {
     'Grovera',
   ],
 };
+
+const whatsappMessage = 'Hi Grovera, I would like to know more about your services';
+
+export const whatsappHref = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(whatsappMessage)}`;
