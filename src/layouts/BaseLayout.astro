@@ -9,9 +9,18 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  /** Keep the page out of search results (link-only pages). */
+  noindex?: boolean;
+  /** 'minimal' drops the homepage navigation for standalone pages. */
+  variant?: 'full' | 'minimal';
 }
 
-const { title = SITE.title, description = SITE.description } = Astro.props;
+const {
+  title = SITE.title,
+  description = SITE.description,
+  noindex = false,
+  variant = 'full',
+} = Astro.props;
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
@@ -38,11 +47,11 @@ const organizationSchema = {
     <script is:inline>
       document.documentElement.classList.add('js');
     </script>
-    <link rel="canonical" href={SITE.url} />
+    {noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={SITE.url} />}
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={SITE.url} />
+    {!noindex && <meta property="og:url" content={SITE.url} />}
     <meta property="og:image" content={`${SITE.url}/og-image.png`} />
     <meta name="twitter:card" content="summary_large_image" />
 
@@ -67,9 +76,9 @@ const organizationSchema = {
     >
       Skip to content
     </a>
-    <Header />
+    <Header variant={variant} />
     <slot />
-    <Footer />
+    <Footer variant={variant} />
     <WhatsAppButton />
   </body>
 </html>

@@ -2,7 +2,7 @@
 import Badge from './Badge.astro';
 
 interface Props {
-  badge: string;
+  badge?: string;
   title: string;
   description?: string;
   class?: string;
@@ -19,10 +19,14 @@ const {
 ---
 
 <div class:list={['mx-auto text-center', className]}>
-  <div class="flex justify-center">
-    <Badge>{badge}</Badge>
-  </div>
-  <h2 class="mt-6 text-balance text-3xl font-bold tracking-tight text-text sm:text-4xl lg:text-5xl">
+  {
+    badge && (
+      <div class="mb-6 flex justify-center">
+        <Badge>{badge}</Badge>
+      </div>
+    )
+  }
+  <h2 class="text-balance text-3xl font-bold tracking-tight text-text sm:text-4xl lg:text-5xl">
     {title}
   </h2>
   {

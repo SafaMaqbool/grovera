@@ -1,0 +1,257 @@
+---
+// Link-only services page for prospects outside the education niche.
+// Not linked from the main navigation, not in the sitemap, and marked noindex.
+import { Icon } from 'astro-icon/components';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/ui/Button.astro';
+import Card from '../components/ui/Card.astro';
+import Container from '../components/ui/Container.astro';
+import GridBackground from '../components/ui/GridBackground.astro';
+import Section from '../components/ui/Section.astro';
+import SectionHeading from '../components/ui/SectionHeading.astro';
+import { SITE, whatsappHref } from '../constants/site';
+import {
+  problems,
+  serviceList,
+  servicesCta,
+  servicesFaq,
+  servicesHero,
+  servicesIntro,
+  standards,
+  standardsIntro,
+  steps,
+} from '../constants/servicesPage';
+
+const iconBox =
+  'flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-surface/50 text-accent-light';
+---
+
+<BaseLayout
+  title="Services | Grovera"
+  description={servicesHero.description}
+  noindex
+  variant="minimal"
+>
+  <main id="main">
+    <!-- Hero -->
+    <section class="relative overflow-hidden pt-32 pb-10 sm:pt-48 sm:pb-20" id="hero">
+      <GridBackground />
+      <div
+        class="pointer-events-none absolute left-1/2 top-0 h-150 w-225 -translate-x-1/2 -translate-y-1/3 radial-glow blur-3xl"
+        aria-hidden="true"
+      >
+      </div>
+
+      <Container class="relative">
+        <div class="mx-auto max-w-3xl text-center">
+          <h1
+            class="fade-up text-balance text-4xl font-bold leading-[1.1] tracking-tight text-text sm:text-6xl"
+          >
+            {servicesHero.title}
+          </h1>
+          <p
+            class="fade-up delay-1 mx-auto mt-6 max-w-2xl text-left text-base leading-relaxed text-text-muted sm:text-lg md:text-balance md:text-center"
+          >
+            {servicesHero.description}
+          </p>
+          <div class="fade-up delay-2 mt-10 flex justify-center">
+            <Button href={whatsappHref} target="_blank" rel="noopener noreferrer">
+              {servicesHero.cta}
+            </Button>
+          </div>
+        </div>
+      </Container>
+    </section>
+
+    <!-- Where are you stuck? -->
+    <Section id="stuck">
+      <Container>
+        <SectionHeading title="Where Are You Stuck?" />
+
+        <div class="mt-10 grid grid-cols-1 gap-5 sm:mt-16 md:grid-cols-3">
+          {
+            problems.map((problem) => (
+              <Card>
+                <div class={iconBox}>
+                  <Icon name={problem.icon} class="h-5 w-5" aria-hidden="true" />
+                </div>
+                <h3 class="mt-5 text-lg font-semibold text-text">{problem.title}</h3>
+                <p class="mt-2 text-sm leading-relaxed text-text-muted">{problem.description}</p>
+              </Card>
+            ))
+          }
+        </div>
+      </Container>
+    </Section>
+
+    <!-- Our services -->
+    <Section id="services">
+      <Container>
+        <SectionHeading
+          title={servicesIntro.title}
+          description={servicesIntro.description}
+          class="max-w-4xl"
+        />
+
+        <div class="mt-10 grid grid-cols-1 gap-5 sm:mt-16 sm:grid-cols-2 lg:grid-cols-4">
+          {
+            serviceList.map((service) => (
+              <Card class="group">
+                <div
+                  class:list={[
+                    iconBox,
+                    'transition-colors duration-300 group-hover:border-accent-light/40',
+                  ]}
+                >
+                  <Icon name={service.icon} class="h-5 w-5" aria-hidden="true" />
+                </div>
+                <h3 class="mt-5 text-lg font-semibold text-text">{service.title}</h3>
+                <p class="mt-2 text-sm leading-relaxed text-text-muted">{service.description}</p>
+              </Card>
+            ))
+          }
+        </div>
+      </Container>
+    </Section>
+
+    <!-- Our marketing standards -->
+    <Section id="standards">
+      <Container>
+        <SectionHeading title={standardsIntro.title} description={standardsIntro.description} />
+
+        <!-- Flex-wrap rather than grid so the incomplete last row is centred. -->
+        <ul class="mt-10 flex flex-wrap justify-center gap-5 sm:mt-16">
+          {
+            standards.map((standard) => (
+              <li class="w-full sm:w-[calc((100%-1.25rem)/2)] lg:w-[calc((100%-2.5rem)/3)]">
+                <Card class="h-full">
+                  <div class="flex items-start gap-4">
+                    <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent/20 text-accent-light">
+                      <Icon name={standard.icon} class="h-5 w-5" aria-hidden="true" />
+                    </div>
+                    <div>
+                      <h3 class="text-lg font-semibold text-text">{standard.title}</h3>
+                      <p class="mt-2 text-sm leading-relaxed text-text-muted">
+                        {standard.description}
+                      </p>
+                    </div>
+                  </div>
+                </Card>
+              </li>
+            ))
+          }
+        </ul>
+      </Container>
+    </Section>
+
+    <!-- Working together -->
+    <Section id="working-together">
+      <Container>
+        <SectionHeading title="Working Together" />
+
+        <ol class="mt-10 grid grid-cols-1 gap-5 sm:mt-16 sm:grid-cols-2 lg:grid-cols-4">
+          {
+            steps.map((step, i) => (
+              <li>
+                <Card class="h-full">
+                  <span class="flex h-11 w-11 items-center justify-center rounded-full border border-accent-light/30 bg-accent/10 text-sm font-semibold text-accent-light">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <h3 class="mt-5 text-lg font-semibold text-text">{step.title}</h3>
+                  <p class="mt-2 text-sm leading-relaxed text-text-muted">{step.description}</p>
+                </Card>
+              </li>
+            ))
+          }
+        </ol>
+      </Container>
+    </Section>
+
+    <!-- Questions -->
+    <Section id="faq">
+      <Container>
+        <SectionHeading title="Questions" />
+
+        <div
+          class="mx-auto mt-10 max-w-3xl divide-y divide-white/10 border-t border-white/10 sm:mt-16"
+        >
+          {
+            servicesFaq.map((item) => (
+              <details class="group">
+                <summary class="flex cursor-pointer list-none items-center justify-between gap-4 rounded-lg py-6 text-base font-medium text-text transition-colors marker:content-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-light focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:text-lg">
+                  {item.question}
+                  <svg
+                    class="h-4 w-4 shrink-0 text-text-muted transition-transform duration-300 group-open:rotate-45"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M8 3v10M3 8h10" />
+                  </svg>
+                </summary>
+                <p class="-mt-2 max-w-2xl pb-6 text-sm leading-relaxed text-text-muted sm:text-base">
+                  {item.answer}
+                </p>
+              </details>
+            ))
+          }
+        </div>
+      </Container>
+    </Section>
+
+    <!-- Final CTA -->
+    <Section id="cta" padding="tight">
+      <Container>
+        <div
+          class="relative overflow-hidden rounded-3xl border border-white/10 bg-surface px-6 py-12 text-center sm:px-16 sm:py-24"
+        >
+          <div
+            class="pointer-events-none absolute left-1/2 top-1/2 h-125 w-175 -translate-x-1/2 -translate-y-1/2 radial-glow blur-3xl"
+            aria-hidden="true"
+          >
+          </div>
+
+          <div class="relative mx-auto max-w-2xl">
+            <h2
+              class="text-balance text-3xl font-bold tracking-tight text-text sm:text-4xl lg:text-5xl"
+            >
+              {servicesCta.title}
+            </h2>
+            <p class="mt-5 text-base leading-relaxed text-text-muted sm:text-lg">
+              {servicesCta.description}
+            </p>
+            <div class="mt-10 flex flex-col items-center gap-4">
+              <Button href={whatsappHref} target="_blank" rel="noopener noreferrer">
+                {servicesCta.cta}
+              </Button>
+              <p class="text-xs text-text-muted">
+                Messaging us shares your phone number with us. Read our{' '}
+                {
+                  SITE.privacyPolicyUrl ? (
+                    <a
+                      href={SITE.privacyPolicyUrl}
+                      class="underline underline-offset-2 transition-colors hover:text-text"
+                    >
+                      Privacy Policy
+                    </a>
+                  ) : (
+                    'Privacy Policy'
+                  )
+                }.
+              </p>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </Section>
+  </main>
+</BaseLayout>
+
+<style>
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+</style>
