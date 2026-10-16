@@ -1,0 +1,20 @@
+---
+// Shown under every WhatsApp button: messaging shares the visitor's phone number.
+import { SITE } from '../../constants/site';
+---
+
+<p class="text-xs text-text-muted">
+  Messaging us shares your phone number with us. Read our{' '}
+  {
+    SITE.privacyPolicyUrl ? (
+      <a
+        href={SITE.privacyPolicyUrl}
+        class="underline underline-offset-2 transition-colors hover:text-text"
+      >
+        Privacy Policy
+      </a>
+    ) : (
+      'Privacy Policy'
+    )
+  }.
+</p>

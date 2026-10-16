@@ -7,11 +7,13 @@ import Button from '../components/ui/Button.astro';
 import Card from '../components/ui/Card.astro';
 import Container from '../components/ui/Container.astro';
 import GridBackground from '../components/ui/GridBackground.astro';
+import PrivacyNote from '../components/ui/PrivacyNote.astro';
 import Section from '../components/ui/Section.astro';
 import SectionHeading from '../components/ui/SectionHeading.astro';
-import { SITE, whatsappHref } from '../constants/site';
+import { whatsappHref } from '../constants/site';
 import {
   problems,
+  problemsCta,
   serviceList,
   servicesCta,
   servicesFaq,
@@ -54,10 +56,11 @@ const iconBox =
           >
             {servicesHero.description}
           </p>
-          <div class="fade-up delay-2 mt-10 flex justify-center">
+          <div class="fade-up delay-2 mt-10 flex flex-col items-center gap-4">
             <Button href={whatsappHref} target="_blank" rel="noopener noreferrer">
               {servicesHero.cta}
             </Button>
+            <PrivacyNote />
           </div>
         </div>
       </Container>
@@ -81,17 +84,20 @@ const iconBox =
             ))
           }
         </div>
+
+        <div class="mt-10 flex flex-col items-center gap-4 text-center sm:mt-12">
+          <Button href={whatsappHref} target="_blank" rel="noopener noreferrer">
+            {problemsCta}
+          </Button>
+          <PrivacyNote />
+        </div>
       </Container>
     </Section>
 
     <!-- Our services -->
     <Section id="services">
       <Container>
-        <SectionHeading
-          title={servicesIntro.title}
-          description={servicesIntro.description}
-          class="max-w-4xl"
-        />
+        <SectionHeading title={servicesIntro.title} class="max-w-4xl" />
 
         <div class="mt-10 grid grid-cols-1 gap-5 sm:mt-16 sm:grid-cols-2 lg:grid-cols-4">
           {
@@ -227,21 +233,7 @@ const iconBox =
               <Button href={whatsappHref} target="_blank" rel="noopener noreferrer">
                 {servicesCta.cta}
               </Button>
-              <p class="text-xs text-text-muted">
-                Messaging us shares your phone number with us. Read our{' '}
-                {
-                  SITE.privacyPolicyUrl ? (
-                    <a
-                      href={SITE.privacyPolicyUrl}
-                      class="underline underline-offset-2 transition-colors hover:text-text"
-                    >
-                      Privacy Policy
-                    </a>
-                  ) : (
-                    'Privacy Policy'
-                  )
-                }.
-              </p>
+              <PrivacyNote />
             </div>
           </div>
         </div>
