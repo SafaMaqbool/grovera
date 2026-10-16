@@ -1,5 +1,6 @@
 // Copy for the link-only services page (/services). Approved by Grovera's
-// Marketing & Media Head, 13 October 2026; keep wording and order as written.
+// Marketing & Media Head, 13 October 2026, revised 14 October 2026; keep wording
+// and order as written.
 
 export interface IconItem {
   title: string;
@@ -8,9 +9,9 @@ export interface IconItem {
 }
 
 export const servicesHero = {
-  title: 'Grow Your Business Without Compromising Your Values.',
+  title: 'Grow Your Business Without Compromising Your Values',
   description:
-    'Effective marketing, grounded in Islamic principles. From paid advertising and social media management to graphic design, video editing and website development, we help businesses grow without compromising on what matters.',
+    'Marketing that follows Islamic principles, from ads and social media to design, video and websites.',
   cta: 'Message us on WhatsApp',
 };
 
@@ -35,10 +36,10 @@ export const problems: IconItem[] = [
   },
 ];
 
+export const problemsCta = 'Tell us on WhatsApp';
+
 export const servicesIntro = {
-  title: 'How We Help Your Business Grow.',
-  description:
-    'We bring together the services your business needs to build a stronger digital presence.',
+  title: 'How We Help Your Business Grow',
 };
 
 export const serviceList: IconItem[] = [
@@ -79,7 +80,7 @@ export const serviceList: IconItem[] = [
   {
     title: 'Email Marketing',
     description:
-      'Campaigns that help businesses communicate with subscribers, nurture leads and maintain customer relationships.',
+      'Campaigns that keep you in touch with subscribers, nurture leads and maintain customer relationships.',
     icon: 'heroicons:envelope',
   },
   {
@@ -91,7 +92,7 @@ export const serviceList: IconItem[] = [
 ];
 
 export const standardsIntro = {
-  title: 'Our Marketing Standards.',
+  title: 'Our Marketing Standards',
   description:
     'We help businesses grow while keeping our work within Islamic principles and Shariah guidelines.',
 };
@@ -136,7 +137,7 @@ export const steps = [
   },
   {
     title: 'Deliver',
-    description: 'We carry out the agreed work and keep you involved throughout.',
+    description: 'We do the agreed work, and you approve each piece before it goes live.',
   },
   {
     title: 'Review',
@@ -148,7 +149,7 @@ export const servicesFaq = [
   {
     question: 'Will this change my ads?',
     answer:
-      "Yes. Our ads follow our standards, including no music in our videos and modest visuals. We'll explain what this means for your brand before work begins.",
+      "Yes. Your ads follow our standards, including no music in our videos and modest visuals. We'll explain what this means for your brand before work begins.",
   },
   {
     question: 'Do you work only with Muslim-owned businesses?',
@@ -168,7 +169,7 @@ export const servicesFaq = [
 ];
 
 export const servicesCta = {
-  title: "Tell Us Where You're Stuck.",
+  title: "Tell Us Where You're Stuck",
   description: 'One message is enough to get started.',
   cta: 'Message us on WhatsApp',
 };
