@@ -29,13 +29,79 @@ import { whatsappHref as href } from '../../constants/site';
   const hero = document.getElementById('hero');
 
   if (button) {
+    // Breathing room kept between the button and any line of text.
+    const CLEARANCE = 8;
+    // Wait this long after text clears before showing again, so it doesn't blink between lines.
+    const SHOW_DELAY = 250;
+    const range = document.createRange();
+    let showTimer: number | undefined;
+    let frame = 0;
+
+    const intersects = (a: DOMRect, b: DOMRect) =>
+      a.left < b.right && a.right > b.left && a.top < b.bottom && a.bottom > b.top;
+
+    // True when rendered text (not just an element's empty box) sits under the button.
+    const coversText = () => {
+      const r = button.getBoundingClientRect();
+      // Measure where the button rests, not where its show/hide slide has it right now.
+      const offsetY = parseFloat(getComputedStyle(button).translate.split(' ')[1] ?? '0') || 0;
+      const zone = new DOMRect(
+        r.left - CLEARANCE,
+        r.top - offsetY - CLEARANCE,
+        r.width + CLEARANCE * 2,
+        r.height + CLEARANCE * 2,
+      );
+      const seen = new Set<Element>();
+      for (let i = 0; i <= 2; i++) {
+        for (let j = 0; j <= 4; j++) {
+          const x = zone.left + (zone.width * i) / 2;
+          const y = zone.top + (zone.height * j) / 4;
+          for (const el of document.elementsFromPoint(x, y)) {
+            if (seen.has(el) || button.contains(el)) continue;
+            seen.add(el);
+            for (const node of el.childNodes) {
+              if (node.nodeType !== Node.TEXT_NODE || !node.textContent?.trim()) continue;
+              range.selectNodeContents(node);
+              for (const rect of range.getClientRects()) {
+                if (intersects(rect, zone)) return true;
+              }
+            }
+          }
+        }
+      }
+      return false;
+    };
+
+    const heroPassed = () =>
+      !hero || hero.getBoundingClientRect().bottom < window.innerHeight * 0.5;
+
     const update = () => {
-      const heroPassed = !hero || hero.getBoundingClientRect().bottom < window.innerHeight * 0.5;
-      button.toggleAttribute('data-visible', heroPassed);
+      frame = 0;
+      const visible = button.hasAttribute('data-visible');
+      // Never pull the button away from someone who has tabbed to it.
+      const wanted = heroPassed() && (button === document.activeElement || !coversText());
+
+      if (!wanted) {
+        clearTimeout(showTimer);
+        showTimer = undefined;
+        button.removeAttribute('data-visible');
+      } else if (!visible && showTimer === undefined) {
+        showTimer = window.setTimeout(() => {
+          showTimer = undefined;
+          // Re-check: the page may have moved during the delay.
+          if (heroPassed() && !coversText()) button.setAttribute('data-visible', '');
+        }, SHOW_DELAY);
+      }
+    };
+
+    const schedule = () => {
+      if (!frame) frame = requestAnimationFrame(update);
     };
 
     update();
-    window.addEventListener('scroll', update, { passive: true });
-    window.addEventListener('resize', update, { passive: true });
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule, { passive: true });
+    // FAQ answers opening and closing move text without a scroll.
+    document.addEventListener('toggle', schedule, true);
   }
 </script>

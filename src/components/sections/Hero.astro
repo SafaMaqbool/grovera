@@ -47,7 +47,12 @@ import Container from '../ui/Container.astro';
       <div
         class="fade-up delay-3 mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
       >
-        <Button href="#cta" variant="primary" class="max-sm:px-5 max-sm:text-xs">
+        <!-- The arrow drops below 375px so the label stays on one line on small phones. -->
+        <Button
+          href="#cta"
+          variant="primary"
+          class="max-sm:gap-1.5 max-sm:px-4 max-sm:text-xs max-[23.4375rem]:[&>svg]:hidden"
+        >
           Let's Build Your Business the Right Way
         </Button>
       </div>

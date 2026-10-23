@@ -105,6 +105,18 @@ const homeHref = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 
   {
     variant === 'full' && (
+      // Dims the page behind the open menu so the panel doesn't blend into the hero.
+      // -z-10 keeps it under the header bar and panel; tapping it closes the menu.
+      <div
+        id="menu-backdrop"
+        class="fixed inset-0 -z-10 hidden bg-background/70 backdrop-blur-sm lg:hidden"
+        aria-hidden="true"
+      />
+    )
+  }
+
+  {
+    variant === 'full' && (
       <div
         id="mobile-menu"
         class="hidden max-h-[calc(100dvh-5.25rem)] overflow-y-auto overscroll-contain border-t border-white/10 bg-background/95 backdrop-blur-md lg:hidden"
@@ -136,6 +148,7 @@ const homeHref = import.meta.env.BASE_URL.replace(/\/?$/, '/');
   const menu = document.getElementById('mobile-menu');
   const iconOpen = document.getElementById('icon-open');
   const iconClose = document.getElementById('icon-close');
+  const backdrop = document.getElementById('menu-backdrop');
 
   const setScrolledState = () => {
     if (!headerInner) return;
@@ -169,6 +182,7 @@ const homeHref = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 
   const openMenu = () => {
     menu?.classList.remove('hidden');
+    backdrop?.classList.remove('hidden');
     iconOpen?.classList.add('hidden');
     iconClose?.classList.remove('hidden');
     toggle?.setAttribute('aria-expanded', 'true');
@@ -177,6 +191,7 @@ const homeHref = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 
   const closeMenu = ({ restoreFocus = false } = {}) => {
     menu?.classList.add('hidden');
+    backdrop?.classList.add('hidden');
     iconOpen?.classList.remove('hidden');
     iconClose?.classList.add('hidden');
     toggle?.setAttribute('aria-expanded', 'false');
@@ -191,6 +206,8 @@ const homeHref = import.meta.env.BASE_URL.replace(/\/?$/, '/');
       openMenu();
     }
   });
+
+  backdrop?.addEventListener('click', () => closeMenu());
 
   document.querySelectorAll('[data-mobile-link]').forEach((el) => {
     el.addEventListener('click', () => closeMenu());

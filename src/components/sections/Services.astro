@@ -1,8 +1,8 @@
 ---
+import { Icon } from 'astro-icon/components';
 import SectionHeading from '../ui/SectionHeading.astro';
 import Card from '../ui/Card.astro';
-import ServiceIcon from '../ui/ServiceIcon.astro';
-import { services } from '../../constants/services';
+import { serviceList } from '../../constants/servicesPage';
 import Container from '../ui/Container.astro';
 import Section from '../ui/Section.astro';
 ---
@@ -17,13 +17,14 @@ import Section from '../ui/Section.astro';
       descriptionClass="max-w-4xl"
     />
 
-    <!-- Flex-wrap rather than grid so an incomplete last row is centred. -->
+    <!-- Same list as the /services page, so both pages always offer the same services.
+         Flex-wrap rather than grid so an incomplete last row is centred. -->
     <div class="mt-10 flex flex-wrap justify-center gap-5 sm:mt-16">
       {
-        services.map((service) => (
+        serviceList.map((service) => (
           <Card class="group w-full sm:w-[calc((100%-1.25rem)/2)] lg:w-[calc((100%-2.5rem)/3)]">
             <div class="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-surface/50 text-accent-light transition-colors duration-300 group-hover:border-accent-light/40 group-hover:text-accent-light/80">
-              <ServiceIcon icon={service.icon} />
+              <Icon name={service.icon} class="h-5 w-5" aria-hidden="true" />
             </div>
             <h3 class="mt-5 text-lg font-semibold text-text">{service.title}</h3>
             <p class="mt-2 text-sm leading-relaxed text-text-muted">{service.description}</p>
