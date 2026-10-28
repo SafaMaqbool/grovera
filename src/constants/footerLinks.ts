@@ -1,4 +1,5 @@
 import { serviceList } from './servicesPage';
+import { SITE } from './site';
 
 export const footerLinks = {
   company: [
@@ -9,8 +10,9 @@ export const footerLinks = {
   ],
   services: serviceList.map((service) => ({ label: service.title, href: '#services' })),
   legal: [
-    { label: 'Privacy Policy', href: '#' },
-    { label: 'Terms of Service', href: '#' },
+    // A null href renders as a disabled "Coming soon" label.
+    { label: 'Privacy Policy', href: SITE.privacyPolicyUrl },
+    { label: 'Terms of Service', href: null },
   ],
   icons: [
     { label: 'X (Twitter)', href: 'https://x.com/groveradigital', icon: 'simple-icons:x' },

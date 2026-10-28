@@ -14,9 +14,8 @@ export const SITE = {
 
   whatsapp: '923260529836',
 
-  // No public Privacy Policy page exists yet. Set this to its URL once it is published;
-  // the services page links to it automatically.
-  privacyPolicyUrl: null as string | null,
+  // Linked from the footer and from the note under every WhatsApp button.
+  privacyPolicyUrl: `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}privacy/` as string | null,
 
   keywords: [
     'Marketing Agency',

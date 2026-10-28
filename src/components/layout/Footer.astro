@@ -108,15 +108,24 @@ const homeHref = import.meta.env.BASE_URL.replace(/\/?$/, '/');
         <p>&copy; {year} Grovera. All rights reserved.</p>
         <div class="flex items-center gap-4">
           {
-            footerLinks.legal.map((item) => (
-              <span
-                aria-disabled="true"
-                title="Coming soon"
-                class="cursor-not-allowed select-none text-text-muted/50"
-              >
-                {item.label}
-              </span>
-            ))
+            footerLinks.legal.map((item) =>
+              item.href ? (
+                <a
+                  href={item.href}
+                  class="inline-flex py-3 transition-colors duration-200 hover:text-text sm:py-0"
+                >
+                  <span class="link-underline">{item.label}</span>
+                </a>
+              ) : (
+                <span
+                  aria-disabled="true"
+                  title="Coming soon"
+                  class="cursor-not-allowed select-none text-text-muted/50"
+                >
+                  {item.label}
+                </span>
+              ),
+            )
           }
         </div>
       </div>
